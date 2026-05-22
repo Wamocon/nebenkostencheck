@@ -269,18 +269,26 @@ export default async function ErgebnisPage({ params }: Props) {
           </div>
         )}
 
-        {/* Pro-Feature-Hinweis */}
-        {!isPro && zusammenfassung.anzahl_nicht_zulaessig > 0 && (
-          <div className="bg-[var(--primary)] rounded-2xl p-6 text-white">
-            <h3 className="font-bold text-lg mb-1">Vollständigen Befund ansehen</h3>
+        {/* Widerspruchsschreiben CTA */}
+        {zusammenfassung.anzahl_nicht_zulaessig > 0 && (
+          <div className={`rounded-2xl p-6 text-white ${isPro ? 'bg-[var(--primary)]' : 'bg-amber-500'}`}>
+            <h3 className="font-bold text-lg mb-1">
+              {isPro ? t('schreiben_cta_pro') : t('schreiben_cta_free')}
+            </h3>
             <p className="text-white/80 text-sm mb-4">
-              Schalte das Pro-Feature frei: Detailbegründungen für alle {zusammenfassung.anzahl_nicht_zulaessig} beanstandeten Positionen + Widerspruchsschreiben als PDF.
+              {isPro
+                ? t('schreiben_desc_pro', { count: zusammenfassung.anzahl_nicht_zulaessig })
+                : t('schreiben_desc_free')}
             </p>
             <Link
-              href={`/${locale}/dashboard/upgrade`}
-              className="inline-flex rounded-lg bg-white px-5 py-2.5 text-sm font-semibold text-[var(--primary)] hover:bg-zinc-100 transition-colors"
+              href={`/${locale}/dashboard/abrechnung/${id}/widerspruch`}
+              className={`inline-flex rounded-lg px-5 py-2.5 text-sm font-semibold transition-colors ${
+                isPro
+                  ? 'bg-white text-[var(--primary)] hover:bg-zinc-100'
+                  : 'bg-white text-amber-600 hover:bg-zinc-100'
+              }`}
             >
-              Jetzt upgraden - 9 € für diese Abrechnung
+              {isPro ? t('schreiben_btn_pro') : t('schreiben_btn_free')}
             </Link>
           </div>
         )}
