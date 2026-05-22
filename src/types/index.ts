@@ -134,3 +134,24 @@ export interface WizardStep3Data {
 export type ActionResult<T = void> =
   | { success: true; data: T }
   | { success: false; error: string };
+
+// --- PDF Parsing Results -----------------------------------------------------
+
+export interface ParsedPosition {
+  original_text: string;
+  recognized_name: string;
+  recognized_category_name: string | null;
+  gesamtbetrag: number;
+  mieter_anteil: number;
+  is_heizkosten: boolean;
+}
+
+export interface ParsedPdfData {
+  step1: Partial<WizardStep1Data>;
+  positions: ParsedPosition[];
+  step3: Partial<WizardStep3Data>;
+  confidence: {
+    fields_found: number;
+    positions_count: number;
+  };
+}

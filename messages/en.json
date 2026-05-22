@@ -136,6 +136,22 @@
       "title_new": "Check new bill",
       "step_of": "Step {current} of {total}"
     },
+    "pdf_upload": {
+      "title": "Auto-read PDF",
+      "subtitle": "Upload your utility bill as PDF - we automatically detect the fields. You can review and correct all data afterwards.",
+      "drag_drop": "Drop PDF here or click to select",
+      "accepted": "PDF files up to 10 MB \u00b7 Digitally created PDFs only (not scanned)",
+      "uploading": "Reading PDF...",
+      "skip": "Enter manually without PDF",
+      "fields_found": "{count} fields detected",
+      "positions_found": "{count} cost positions detected",
+      "check_fields": "Please carefully review all pre-filled fields and add any missing information.",
+      "error_not_pdf": "Please upload a PDF file.",
+      "error_too_large": "The file is too large (maximum 10 MB).",
+      "error_generic": "Error processing the PDF.",
+      "hint": "Tip: Detection works best with digitally created PDFs. Scanned bills are not supported.",
+      "continue": "Use detected data and review fields"
+    },
     "validation": {
       "required": "Required",
       "min_1": "At least one line item required",

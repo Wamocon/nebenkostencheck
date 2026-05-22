@@ -7,8 +7,10 @@ import type {
   WizardStep1Data,
   WizardPositionInput,
   WizardStep3Data,
+  ParsedPdfData,
 } from '@/types';
 import { runPruefung } from '@/lib/pruefung/engine';
+import { parseNebenkostenText } from '@/lib/pdf/parser';
 
 // --- Hilfsfunktion: aktuell eingeloggten Nutzer holen ----------------------
 
@@ -191,4 +193,54 @@ export async function startPruefungAction(
     success: true,
     data: { redirectUrl: `/${locale}/dashboard/abrechnung/${abrechnungId}/ergebnis` },
   };
+}
+
+// --- PDF: Hochladen und Text extrahieren + parsen ---------------------------
+
+export async function parsePdfAction(
+  formData: FormData
+): Promise<ActionResult<ParsedPdfData>> {
+  await getAuthenticatedUser(); // auth guard
+
+  const file = formData.get('pdf');
+  if (!(file instanceof File)) {
+    return { success: false, error: 'Keine Datei gefunden' };
+  }
+
+  if (file.type !== 'application/pdf') {
+    return { success: false, error: 'Nur PDF-Dateien werden akzeptiert' };
+  }
+
+  const MAX_SIZE = 10 * 1024 * 1024; // 10 MB
+  if (file.size > MAX_SIZE) {
+    return { success: false, error: 'Datei zu groß (maximal 10 MB)' };
+  }
+
+  try {
+    const arrayBuffer = await file.arrayBuffer();
+    const buffer = Buffer.from(arrayBuffer);
+
+    // pdf-parse is CJS and excluded from bundling via serverExternalPackages
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
+    const pdfParse = require('pdf-parse') as (
+      buf: Buffer,
+      options?: { max?: number }
+    ) => Promise<{ text: string; numpages: number }>;
+
+    const pdfData = await pdfParse(buffer, { max: 0 });
+
+    if (!pdfData.text || pdfData.text.trim().length < 50) {
+      return {
+        success: false,
+        error:
+          'Die PDF enthält keinen lesbaren Text (evtl. gescannt). Bitte gib die Daten manuell ein.',
+      };
+    }
+
+    const parsed = parseNebenkostenText(pdfData.text);
+    return { success: true, data: parsed };
+  } catch (err) {
+    console.error('PDF parse error:', err);
+    return { success: false, error: 'Fehler beim Verarbeiten der PDF.' };
+  }
 }

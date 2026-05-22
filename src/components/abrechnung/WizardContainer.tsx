@@ -9,6 +9,7 @@ import { Step1Grunddaten } from './Step1Grunddaten';
 import { Step2Positionen } from './Step2Positionen';
 import { Step3Heizkosten } from './Step3Heizkosten';
 import { Step4Summary } from './Step4Summary';
+import { PdfUpload } from './PdfUpload';
 import {
   createAbrechnung,
   savePositionen,
@@ -20,7 +21,10 @@ import type {
   WizardStep1Data,
   WizardPositionInput,
   WizardStep3Data,
+  ParsedPdfData,
 } from '@/types';
+
+type Phase = 'upload' | 'wizard';
 
 type Props = {
   locale: string;
@@ -29,9 +33,11 @@ type Props = {
 
 export function WizardContainer({ locale, kategorien }: Props) {
   const t = useTranslations('abrechnung');
+  const tPdf = useTranslations('abrechnung.pdf_upload');
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
 
+  const [phase, setPhase] = useState<Phase>('upload');
   const [currentStep, setCurrentStep] = useState(1);
   const [abrechnungId, setAbrechnungId] = useState<string | null>(null);
 
@@ -47,28 +53,58 @@ export function WizardContainer({ locale, kategorien }: Props) {
     t('wizard.step4'),
   ];
 
+  // --- PDF parsed: pre-fill wizard data ------------------------------------
+
+  const handlePdfParsed = (data: ParsedPdfData) => {
+    // Pre-fill Step1
+    if (Object.keys(data.step1).length > 0) {
+      setStep1Data({
+        jahr: data.step1.jahr ?? new Date().getFullYear() - 1,
+        zugangsdatum: data.step1.zugangsdatum ?? '',
+        vermieter_name: data.step1.vermieter_name ?? '',
+        vermieter_adresse: data.step1.vermieter_adresse ?? '',
+        wohnflaeche_qm: data.step1.wohnflaeche_qm ?? 0,
+        vorauszahlung_monatlich: data.step1.vorauszahlung_monatlich ?? null,
+        saldo: data.step1.saldo ?? null,
+      });
+    }
+
+    // Pre-fill Step2 from recognized positions
+    if (data.positions.length > 0) {
+      const positionen: WizardPositionInput[] = data.positions.map((p) => ({
+        betrkv_category_id: null, // user selects from dropdown
+        freitext_kategorie: p.recognized_name,
+        gesamtbetrag: p.gesamtbetrag,
+        umlageschluessel: '',
+        mieter_anteil: p.mieter_anteil,
+      }));
+      setStep2Data(positionen);
+    }
+
+    // Pre-fill Step3
+    if (data.step3.gesamtkosten) {
+      setStep3Data({
+        gesamtkosten: data.step3.gesamtkosten,
+        verbrauchsanteil_prozent: data.step3.verbrauchsanteil_prozent ?? 70,
+        grundkostenanteil_prozent: data.step3.grundkostenanteil_prozent ?? 30,
+      });
+    }
+
+    setPhase('wizard');
+  };
+
   // --- Step 1: Grunddaten ---------------------------------------------------
 
   const handleStep1Submit = (data: WizardStep1Data) => {
     startTransition(async () => {
       setStep1Data(data);
 
-      if (abrechnungId) {
-        // Update vorhandene Abrechnung
-        const result = await createAbrechnung(data);
-        if (!result.success) {
-          toast.error(result.error);
-          return;
-        }
-      } else {
-        const result = await createAbrechnung(data);
-        if (!result.success) {
-          toast.error(result.error);
-          return;
-        }
-        setAbrechnungId(result.data.id);
+      const result = await createAbrechnung(data);
+      if (!result.success) {
+        toast.error(result.error);
+        return;
       }
-
+      setAbrechnungId(result.data.id);
       setCurrentStep(2);
     });
   };
@@ -116,6 +152,34 @@ export function WizardContainer({ locale, kategorien }: Props) {
       router.push(result.data.redirectUrl);
     });
   };
+
+  // --- Upload Phase ---------------------------------------------------------
+
+  if (phase === 'upload') {
+    return (
+      <div className="mx-auto max-w-2xl">
+        <div className="mb-8">
+          <h1 className="text-2xl font-bold text-zinc-900 dark:text-zinc-50 mb-1">
+            {t('wizard.title_new')}
+          </h1>
+          <p className="text-sm text-zinc-500">{tPdf('subtitle')}</p>
+        </div>
+
+        <div className="bg-white dark:bg-zinc-900 rounded-2xl border border-[var(--border)] p-6 shadow-sm">
+          <h2 className="text-lg font-semibold text-zinc-900 dark:text-zinc-50 mb-5 flex items-center gap-2">
+            <svg className="w-5 h-5 text-[var(--primary)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+            </svg>
+            {tPdf('title')}
+          </h2>
+
+          <PdfUpload onParsed={handlePdfParsed} onSkip={() => setPhase('wizard')} />
+        </div>
+      </div>
+    );
+  }
+
+  // --- Wizard Phase ---------------------------------------------------------
 
   return (
     <div className="mx-auto max-w-2xl">
