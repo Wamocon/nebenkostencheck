@@ -11,6 +11,7 @@ import type {
 } from '@/types';
 import { runPruefung } from '@/lib/pruefung/engine';
 import { parseNebenkostenText } from '@/lib/pdf/parser';
+import { generateWiderspruchText } from '@/lib/widerspruch/generator';
 
 // --- Hilfsfunktion: aktuell eingeloggten Nutzer holen ----------------------
 
@@ -243,4 +244,69 @@ export async function parsePdfAction(
     console.error('PDF parse error:', err);
     return { success: false, error: 'Fehler beim Verarbeiten der PDF.' };
   }
+}
+
+// --- Widerspruchsschreiben generieren --------------------------------------
+
+export async function generateWiderspruchAction(
+  abrechnungId: string
+): Promise<ActionResult<{ id: string; inhalt_text: string }>> {
+  const { user, supabase } = await getAuthenticatedUser();
+
+  // Abrechnung laden
+  const { data: abr } = await supabase
+    .from('abrechnungen')
+    .select('id, jahr, zugangsdatum, vermieter_name, vermieter_adresse')
+    .eq('id', abrechnungId)
+    .eq('user_id', user.id)
+    .single();
+
+  if (!abr) return { success: false, error: 'Abrechnung nicht gefunden' };
+
+  // Prüfergebnisse laden (mit Positionen-Join)
+  const { data: ergebnisse } = await supabase
+    .from('pruefergebnisse')
+    .select(
+      'pruef_typ, status, begruendung_de, gesetzesreferenz, beanstandeter_betrag, positionen(freitext_kategorie, mieter_anteil, betrkv_categories(name_de))'
+    )
+    .eq('abrechnung_id', abrechnungId);
+
+  // Nutzerprofil für Namen
+  const { data: profile } = await supabase
+    .from('profiles')
+    .select('name')
+    .eq('user_id', user.id)
+    .single();
+
+  const text = generateWiderspruchText({
+    abrechnung: abr,
+    tenantName: profile?.name ?? null,
+    pruefergebnisse: (ergebnisse ?? []).map((e) => ({
+      pruef_typ: e.pruef_typ,
+      status: e.status,
+      begruendung_de: e.begruendung_de ?? null,
+      gesetzesreferenz: e.gesetzesreferenz ?? null,
+      beanstandeter_betrag: e.beanstandeter_betrag ?? null,
+      positionen: Array.isArray(e.positionen) && e.positionen.length > 0
+        ? (e.positionen[0] as unknown as {
+            freitext_kategorie: string | null;
+            mieter_anteil: number | null;
+            betrkv_categories?: { name_de: string } | null;
+          })
+        : null,
+    })),
+  });
+
+  // Upsert in Supabase (unique constraint auf abrechnung_id)
+  const { data: schreiben, error } = await supabase
+    .from('widerspruchsschreiben')
+    .upsert({ abrechnung_id: abrechnungId, inhalt_text: text }, { onConflict: 'abrechnung_id' })
+    .select('id, inhalt_text')
+    .single();
+
+  if (error || !schreiben) {
+    return { success: false, error: error?.message ?? 'Fehler beim Speichern' };
+  }
+
+  return { success: true, data: { id: schreiben.id, inhalt_text: schreiben.inhalt_text } };
 }

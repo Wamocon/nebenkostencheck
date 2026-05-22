@@ -210,12 +210,55 @@
       "pruefungswuerdig": "Worth reviewing"
     },
     "download_pdf": "Download report as PDF (Pro)",
-    "create_schreiben": "Create dispute letter (Pro)"
+    "create_schreiben": "Create dispute letter (Pro)",
+    "schreiben_cta_pro": "Create dispute letter now",
+    "schreiben_cta_free": "Unlock dispute letter (Pro)",
+    "schreiben_desc_pro": "{count} non-permissible items found - create your formal dispute letter now.",
+    "schreiben_desc_free": "Upgrade to Pro and get a print-ready dispute letter with all legal justifications.",
+    "schreiben_btn_pro": "Create dispute letter",
+    "schreiben_btn_free": "Unlock Pro - one-time 9 €"
+  },
+  "widerspruch": {
+    "title": "Dispute Letter",
+    "subtitle": "To {vermieter} | Statement {jahr}",
+    "back_to_result": "Back to check result",
+    "save_pdf": "Print / save as PDF",
+    "unlock_pro": "Unlock Pro",
+    "free_hint_title": "Pro Feature",
+    "free_hint_desc": "The dispute letter is a Pro feature. Unlock Pro to view and print the full letter.",
+    "upgrade_to_view": "Unlock now",
+    "rdg_disclaimer": "Notice: This letter was generated automatically and does not constitute legal advice. For your specific case, we recommend consulting a qualified lawyer or your local tenant association."
   },
   "legal": {
     "agb": "Terms and Conditions",
     "impressum": "Legal Notice",
-    "datenschutz": "Privacy Policy"
+    "datenschutz": "Privacy Policy",
+    "agb_title": "Terms and Conditions",
+    "impressum_title": "Legal Notice",
+    "datenschutz_title": "Privacy Policy",
+    "stand": "Last updated",
+    "kontakt": "Contact",
+    "geschaeftsfuehrer": "Managing Director",
+    "registereintrag": "Company Registration",
+    "angebot_title": "About this Service"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Everything you need to know about checking your utility bill.",
+    "still_questions": "More questions? We are happy to help.",
+    "contact_us": "Get in touch"
+  },
+  "upgrade": {
+    "title": "NebenkostenCheck Pro",
+    "subtitle": "Unlock the full report and dispute letter for this statement.",
+    "pro_label": "Pro Feature",
+    "per_check": "one-time per statement - no subscription",
+    "payment_coming_soon": "Payment coming soon (Stripe)",
+    "payment_hint": "The payment feature will be available shortly.",
+    "compare_title": "Free vs. Pro comparison",
+    "already_pro": "You are already on Pro!",
+    "already_pro_desc": "All features are unlocked for your account.",
+    "back_to_dashboard": "Back to dashboard"
   },
   "cookie": {
     "message": "We use cookies to enable and improve the use of this website. By continuing to use this site, you agree to their use.",

@@ -227,12 +227,55 @@
       "pruefungswuerdig": "Prüfungswürdig"
     },
     "download_pdf": "Prüfbericht als PDF (Pro)",
-    "create_schreiben": "Widerspruchsschreiben erstellen (Pro)"
+    "create_schreiben": "Widerspruchsschreiben erstellen (Pro)",
+    "schreiben_cta_pro": "Widerspruchsschreiben jetzt erstellen",
+    "schreiben_cta_free": "Widerspruchsschreiben freischalten (Pro)",
+    "schreiben_desc_pro": "{count} beanstandete Positionen - Erstellen Sie jetzt Ihr formales Widerspruchsschreiben.",
+    "schreiben_desc_free": "Schalten Sie Pro frei und erhalten Sie ein druckfertiges Widerspruchsschreiben mit allen Rechtsbegründungen.",
+    "schreiben_btn_pro": "Widerspruchsschreiben erstellen",
+    "schreiben_btn_free": "Pro freischalten - 9 € einmalig"
+  },
+  "widerspruch": {
+    "title": "Widerspruchsschreiben",
+    "subtitle": "An {vermieter} | Abrechnung {jahr}",
+    "back_to_result": "Zurück zum Prüfergebnis",
+    "save_pdf": "Als PDF drucken / speichern",
+    "unlock_pro": "Pro freischalten",
+    "free_hint_title": "Pro-Feature",
+    "free_hint_desc": "Das Widerspruchsschreiben ist ein Pro-Feature. Schalten Sie Pro frei, um das vollständige Schreiben anzuzeigen und zu drucken.",
+    "upgrade_to_view": "Jetzt freischalten",
+    "rdg_disclaimer": "Hinweis: Dieses Schreiben wurde automatisch generiert und ersetzt keine Rechtsberatung. Für Ihren konkreten Einzelfall empfehlen wir die Beratung durch einen qualifizierten Rechtsanwalt oder den zuständigen Mieterverein."
   },
   "legal": {
     "agb": "Allgemeine Geschäftsbedingungen",
     "impressum": "Impressum",
-    "datenschutz": "Datenschutzerklärung"
+    "datenschutz": "Datenschutzerklärung",
+    "agb_title": "Allgemeine Geschäftsbedingungen (AGB)",
+    "impressum_title": "Impressum",
+    "datenschutz_title": "Datenschutzerklärung",
+    "stand": "Stand",
+    "kontakt": "Kontakt",
+    "geschaeftsfuehrer": "Vertretungsberechtigter Geschäftsführer",
+    "registereintrag": "Registereintrag",
+    "angebot_title": "Angaben zum Angebot"
+  },
+  "faq": {
+    "title": "Häufig gestellte Fragen",
+    "subtitle": "Alles, was Sie über die Prüfung Ihrer Nebenkostenabrechnung wissen müssen.",
+    "still_questions": "Weitere Fragen? Wir helfen gerne.",
+    "contact_us": "Kontakt aufnehmen"
+  },
+  "upgrade": {
+    "title": "NebenkostenCheck Pro",
+    "subtitle": "Schalten Sie den vollständigen Prüfbericht und das Widerspruchsschreiben für diese Abrechnung frei.",
+    "pro_label": "Pro-Feature",
+    "per_check": "einmalig pro Abrechnung - kein Abo",
+    "payment_coming_soon": "Zahlung folgt in Kürze (Stripe)",
+    "payment_hint": "Die Zahlungsfunktion wird in Kürze verfügbar sein.",
+    "compare_title": "Free vs. Pro im Vergleich",
+    "already_pro": "Sie nutzen bereits Pro!",
+    "already_pro_desc": "Alle Funktionen sind für Ihr Konto freigeschaltet.",
+    "back_to_dashboard": "Zurück zum Dashboard"
   },
   "cookie": {
     "message": "Wir verwenden Cookies, um die Nutzung der Website zu ermöglichen und zu verbessern. Durch die weitere Nutzung stimmen Sie der Verwendung zu.",
