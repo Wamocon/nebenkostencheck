@@ -114,7 +114,13 @@
     "frist_label": "Einwendungsfrist",
     "frist_days": "{days} Tage verbleibend",
     "frist_expired": "Frist abgelaufen",
-    "frist_today": "Heute läuft die Frist ab!"
+    "frist_today": "Heute läuft die Frist ab!",
+    "status_entwurf": "Entwurf",
+    "status_eingereicht": "Eingereicht",
+    "status_geprueft": "Geprüft",
+    "abrechnung_year": "Abrechnung {year}",
+    "view_result": "Ergebnis ansehen",
+    "continue": "Fortsetzen"
   },
   "abrechnung": {
     "wizard": {
@@ -125,7 +131,58 @@
       "next": "Weiter",
       "back": "Zurück",
       "save_draft": "Zwischenspeichern",
-      "start_check": "Prüfung starten"
+      "start_check": "Prüfung starten",
+      "checking": "Prüfung läuft...",
+      "title_new": "Neue Abrechnung prüfen",
+      "step_of": "Schritt {current} von {total}"
+    },
+    "pdf_upload": {
+      "title": "PDF automatisch auslesen",
+      "subtitle": "Lade deine Abrechnung als PDF hoch - wir erkennen die Felder automatisch. Du kannst alle Angaben anschlie\u00dfend pr\u00fcfen und korrigieren.",
+      "drag_drop": "PDF hier ablegen oder klicken zum Ausw\u00e4hlen",
+      "accepted": "PDF-Dateien bis 10 MB \u00b7 Nur digital erstellte PDFs (nicht gescannt)",
+      "uploading": "PDF wird ausgelesen...",
+      "skip": "Manuell eingeben ohne PDF",
+      "fields_found": "{count} Felder erkannt",
+      "positions_found": "{count} Kostenpositionen erkannt",
+      "check_fields": "Bitte pr\u00fcfe alle vorausgef\u00fcllten Felder sorgf\u00e4ltig und erg\u00e4nze fehlende Angaben.",
+      "error_not_pdf": "Bitte lade eine PDF-Datei hoch.",
+      "error_too_large": "Die Datei ist zu gro\u00df (maximal 10 MB).",
+      "error_generic": "Fehler beim Verarbeiten der PDF.",
+      "hint": "Tipp: Die Erkennung funktioniert am besten bei digital erstellten PDFs. Gescannte Abrechnungen werden nicht unterst\u00fctzt.",
+      "continue": "Erkannte Daten \u00fcbernehmen und Felder pr\u00fcfen"
+    },
+    "pdf_upload": {
+      "title": "PDF automatisch auslesen",
+      "subtitle": "Lade deine Abrechnung als PDF hoch - wir erkennen die Felder automatisch. Du kannst alle Angaben anschließend prüfen und korrigieren.",
+      "drag_drop": "PDF hier ablegen oder klicken zum Auswählen",
+      "accepted": "PDF-Dateien bis 10 MB · Nur digital erstellte PDFs (nicht gescannt)",
+      "uploading": "PDF wird ausgelesen...",
+      "skip": "Manuell eingeben ohne PDF",
+      "fields_found": "{count} Felder erkannt",
+      "positions_found": "{count} Kostenpositionen erkannt",
+      "check_fields": "Bitte prüfe alle vorausgefüllten Felder im nächsten Schritt sorgfältig und ergänze fehlende Angaben.",
+      "error_not_pdf": "Bitte lade eine PDF-Datei hoch.",
+      "error_too_large": "Die Datei ist zu groß (maximal 10 MB).",
+      "error_no_text": "Die PDF enthält keinen lesbaren Text (evtl. gescannt). Bitte gib die Daten manuell ein.",
+      "error_generic": "Fehler beim Verarbeiten der PDF.",
+      "hint": "Tipp: Die Erkennung funktioniert am besten bei digital erstellten PDFs. Gescannte Abrechnungen werden nicht unterstützt.",
+      "continue": "Erkannte Daten übernehmen und Felder prüfen"
+    },
+    "validation": {
+      "required": "Pflichtfeld",
+      "min_1": "Mindestens eine Position erforderlich",
+      "invalid_number": "Ungültige Zahl",
+      "positive_number": "Muss größer als 0 sein",
+      "verbrauch_sum": "Verbrauchsanteil + Grundkostenanteil muss 100% ergeben",
+      "verbrauch_range": "Verbrauchsanteil muss zwischen 0 und 100 liegen"
+    },
+    "umlageschluessel_options": {
+      "wohnflaeche": "Nach Wohnfläche",
+      "wohneinheiten": "Nach Wohneinheiten",
+      "verbrauch": "Nach Verbrauch",
+      "personen": "Nach Personenzahl",
+      "sonstige": "Sonstiger Schlüssel"
     },
     "fields": {
       "jahr": "Abrechnungsjahr",
