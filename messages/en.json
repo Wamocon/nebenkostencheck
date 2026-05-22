@@ -275,5 +275,14 @@
     "not_found": "Page not found",
     "unauthorized": "Please sign in",
     "generic": "An error occurred. Please try again."
+  },
+  "notifications": {
+    "title": "Notifications",
+    "empty": "No new notifications",
+    "mark_read": "Mark as read",
+    "mark_all_read": "Mark all as read",
+    "ago_minutes": "{count} min ago",
+    "ago_hours": "{count}h ago",
+    "ago_days": "{count}d ago"
   }
 }

@@ -27,24 +27,24 @@ export function Step4Summary({ step1, step2, step3, kategorien, onStart, onBack,
     <div className="space-y-6">
       {/* Grunddaten */}
       <section>
-        <h3 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100 mb-3 flex items-center gap-2">
-          <span className="w-5 h-5 rounded-full bg-[var(--primary)] text-white text-xs flex items-center justify-center">1</span>
+        <h3 className="text-sm font-semibold text-[var(--on-surface)] mb-3 flex items-center gap-2">
+          <span className="w-5 h-5 rounded-full bg-[var(--primary)] text-[var(--on-primary)] text-xs flex items-center justify-center">1</span>
           {t('wizard.step1')}
         </h3>
-        <div className="grid grid-cols-2 gap-2 text-sm bg-[var(--muted)] dark:bg-zinc-900 rounded-xl p-4">
-          <span className="text-zinc-500">{t('fields.jahr')}</span>
-          <span className="font-medium text-zinc-900 dark:text-zinc-50">{step1.jahr}</span>
-          <span className="text-zinc-500">{t('fields.zugangsdatum')}</span>
-          <span className="font-medium text-zinc-900 dark:text-zinc-50">
+        <div className="grid grid-cols-2 gap-2 text-sm bg-[var(--surface-container)] rounded-xl p-4">
+          <span className="text-[var(--on-surface-variant)]">{t('fields.jahr')}</span>
+          <span className="font-medium text-[var(--on-surface)]">{step1.jahr}</span>
+          <span className="text-[var(--on-surface-variant)]">{t('fields.zugangsdatum')}</span>
+          <span className="font-medium text-[var(--on-surface)]">
             {new Date(step1.zugangsdatum).toLocaleDateString('de-DE')}
           </span>
-          <span className="text-zinc-500">{t('fields.vermieter_name')}</span>
-          <span className="font-medium text-zinc-900 dark:text-zinc-50">{step1.vermieter_name}</span>
-          <span className="text-zinc-500">{t('fields.wohnflaeche')}</span>
-          <span className="font-medium text-zinc-900 dark:text-zinc-50">{step1.wohnflaeche_qm} m²</span>
+          <span className="text-[var(--on-surface-variant)]">{t('fields.vermieter_name')}</span>
+          <span className="font-medium text-[var(--on-surface)]">{step1.vermieter_name}</span>
+          <span className="text-[var(--on-surface-variant)]">{t('fields.wohnflaeche')}</span>
+          <span className="font-medium text-[var(--on-surface)]">{step1.wohnflaeche_qm} m²</span>
           {step1.saldo != null && (
             <>
-              <span className="text-zinc-500">{t('fields.saldo')}</span>
+              <span className="text-[var(--on-surface-variant)]">{t('fields.saldo')}</span>
               <span className={`font-medium ${step1.saldo > 0 ? 'text-red-600' : 'text-green-600'}`}>
                 {step1.saldo > 0 ? '+' : ''}{step1.saldo.toFixed(2)} €
               </span>
@@ -55,32 +55,32 @@ export function Step4Summary({ step1, step2, step3, kategorien, onStart, onBack,
 
       {/* Positionen */}
       <section>
-        <h3 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100 mb-3 flex items-center gap-2">
-          <span className="w-5 h-5 rounded-full bg-[var(--primary)] text-white text-xs flex items-center justify-center">2</span>
+        <h3 className="text-sm font-semibold text-[var(--on-surface)] mb-3 flex items-center gap-2">
+          <span className="w-5 h-5 rounded-full bg-[var(--primary)] text-[var(--on-primary)] text-xs flex items-center justify-center">2</span>
           {t('wizard.step2')} ({step2.length} Positionen)
         </h3>
-        <div className="bg-[var(--muted)] dark:bg-zinc-900 rounded-xl overflow-hidden">
+        <div className="bg-[var(--surface-container)] rounded-xl overflow-hidden">
           <table className="w-full text-sm">
             <thead>
-              <tr className="border-b border-[var(--border)]">
-                <th className="text-left px-4 py-2.5 text-xs font-medium text-zinc-500">Kostenart</th>
-                <th className="text-right px-4 py-2.5 text-xs font-medium text-zinc-500">Ihr Anteil</th>
+              <tr className="border-b border-[var(--outline-variant)]">
+                <th className="text-left px-4 py-2.5 text-xs font-medium text-[var(--on-surface-variant)]">Kostenart</th>
+                <th className="text-right px-4 py-2.5 text-xs font-medium text-[var(--on-surface-variant)]">Ihr Anteil</th>
               </tr>
             </thead>
             <tbody>
               {step2.map((pos, i) => (
-                <tr key={i} className="border-b border-[var(--border)] last:border-0">
-                  <td className="px-4 py-2.5 text-zinc-700 dark:text-zinc-300">
+                <tr key={i} className="border-b border-[var(--outline-variant)] last:border-0">
+                  <td className="px-4 py-2.5 text-[var(--on-surface)]">
                     {getKatName(pos.betrkv_category_id, pos.freitext_kategorie)}
                   </td>
-                  <td className="px-4 py-2.5 text-right font-medium text-zinc-900 dark:text-zinc-50">
+                  <td className="px-4 py-2.5 text-right font-medium text-[var(--on-surface)]">
                     {pos.mieter_anteil.toFixed(2)} €
                   </td>
                 </tr>
               ))}
-              <tr className="bg-zinc-100 dark:bg-zinc-800">
-                <td className="px-4 py-2.5 font-semibold text-zinc-900 dark:text-zinc-50">Gesamt</td>
-                <td className="px-4 py-2.5 text-right font-semibold text-zinc-900 dark:text-zinc-50">
+              <tr className="bg-[var(--surface-container-high)]">
+                <td className="px-4 py-2.5 font-semibold text-[var(--on-surface)]">Gesamt</td>
+                <td className="px-4 py-2.5 text-right font-semibold text-[var(--on-surface)]">
                   {gesamtMieterAnteil.toFixed(2)} €
                 </td>
               </tr>
@@ -91,24 +91,24 @@ export function Step4Summary({ step1, step2, step3, kategorien, onStart, onBack,
 
       {/* Heizkosten */}
       <section>
-        <h3 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100 mb-3 flex items-center gap-2">
-          <span className="w-5 h-5 rounded-full bg-[var(--primary)] text-white text-xs flex items-center justify-center">3</span>
+        <h3 className="text-sm font-semibold text-[var(--on-surface)] mb-3 flex items-center gap-2">
+          <span className="w-5 h-5 rounded-full bg-[var(--primary)] text-[var(--on-primary)] text-xs flex items-center justify-center">3</span>
           {t('wizard.step3')}
         </h3>
-        <div className="grid grid-cols-3 gap-2 text-sm bg-[var(--muted)] dark:bg-zinc-900 rounded-xl p-4">
+        <div className="grid grid-cols-3 gap-2 text-sm bg-[var(--surface-container)] rounded-xl p-4">
           <div className="text-center">
-            <p className="text-xs text-zinc-500 mb-1">{t('heizkosten.gesamtkosten')}</p>
-            <p className="font-semibold text-zinc-900 dark:text-zinc-50">{step3.gesamtkosten.toFixed(2)} €</p>
+            <p className="text-xs text-[var(--on-surface-variant)] mb-1">{t('heizkosten.gesamtkosten')}</p>
+            <p className="font-semibold text-[var(--on-surface)]">{step3.gesamtkosten.toFixed(2)} €</p>
           </div>
           <div className="text-center">
-            <p className="text-xs text-zinc-500 mb-1">Verbrauchsanteil</p>
+            <p className="text-xs text-[var(--on-surface-variant)] mb-1">Verbrauchsanteil</p>
             <p className={`font-semibold ${step3.verbrauchsanteil_prozent >= 50 && step3.verbrauchsanteil_prozent <= 70 ? 'text-green-600' : 'text-red-600'}`}>
               {step3.verbrauchsanteil_prozent}%
             </p>
           </div>
           <div className="text-center">
-            <p className="text-xs text-zinc-500 mb-1">Grundkostenanteil</p>
-            <p className="font-semibold text-zinc-900 dark:text-zinc-50">{step3.grundkostenanteil_prozent}%</p>
+            <p className="text-xs text-[var(--on-surface-variant)] mb-1">Grundkostenanteil</p>
+            <p className="font-semibold text-[var(--on-surface)]">{step3.grundkostenanteil_prozent}%</p>
           </div>
         </div>
       </section>
@@ -118,7 +118,7 @@ export function Step4Summary({ step1, step2, step3, kategorien, onStart, onBack,
         <button
           type="button"
           onClick={onBack}
-          className="rounded-lg border border-[var(--border)] px-5 py-2.5 text-sm font-semibold text-zinc-700 dark:text-zinc-300 hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors"
+          className="rounded-lg border border-[var(--outline-variant)] px-5 py-2.5 text-sm font-semibold text-[var(--on-surface)] hover:bg-[var(--surface-container-high)]/50 transition-colors"
         >
           ← {t('wizard.back')}
         </button>
@@ -126,7 +126,7 @@ export function Step4Summary({ step1, step2, step3, kategorien, onStart, onBack,
           type="button"
           onClick={onStart}
           disabled={isLoading}
-          className="rounded-lg bg-[var(--primary)] px-6 py-2.5 text-sm font-semibold text-white hover:bg-[var(--primary-dark)] disabled:opacity-50 transition-colors flex items-center gap-2"
+          className="rounded-lg bg-[var(--primary)] px-6 py-2.5 text-sm font-semibold text-[var(--on-primary)] hover:opacity-90 disabled:opacity-50 transition-colors flex items-center gap-2"
         >
           {isLoading ? (
             <>

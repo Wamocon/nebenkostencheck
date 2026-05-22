@@ -33,7 +33,7 @@ export default async function UpgradePage({ params }: Props) {
   const isPro = profile?.tariff === 'pro';
 
   return (
-    <div className="min-h-screen bg-[var(--muted)] dark:bg-zinc-950 py-12 px-4">
+    <div className="min-h-screen bg-[var(--surface)] py-12 px-4">
       <div className="mx-auto max-w-2xl space-y-8">
 
         {/* Already Pro */}
@@ -62,16 +62,16 @@ export default async function UpgradePage({ params }: Props) {
                 </svg>
                 {t('pro_label')}
               </div>
-              <h1 className="text-3xl font-bold text-zinc-900 dark:text-zinc-50 mb-3">{t('title')}</h1>
-              <p className="text-zinc-500 max-w-lg mx-auto">{t('subtitle')}</p>
+              <h1 className="text-3xl font-bold text-[var(--on-surface)] mb-3">{t('title')}</h1>
+              <p className="text-[var(--on-surface-variant)] max-w-lg mx-auto">{t('subtitle')}</p>
             </div>
 
             {/* Pricing Card */}
-            <div className="bg-white dark:bg-zinc-900 rounded-2xl border-2 border-[var(--primary)] shadow-lg p-8 text-center space-y-6">
+            <div className="bg-[var(--surface-container)] rounded-2xl border-2 border-[var(--primary)] shadow-lg p-8 text-center space-y-6">
               {/* Price */}
               <div>
                 <div className="text-5xl font-black text-[var(--primary)] mb-1">9 €</div>
-                <p className="text-zinc-500 text-sm">{t('per_check')}</p>
+                <p className="text-[var(--on-surface-variant)] text-sm">{t('per_check')}</p>
               </div>
 
               {/* Features */}
@@ -81,7 +81,7 @@ export default async function UpgradePage({ params }: Props) {
                     <svg className="w-5 h-5 text-[var(--primary)] flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
                     </svg>
-                    <span className="text-sm text-zinc-700 dark:text-zinc-300">{f}</span>
+                    <span className="text-sm text-[var(--on-surface)]">{f}</span>
                   </li>
                 ))}
               </ul>
@@ -89,29 +89,29 @@ export default async function UpgradePage({ params }: Props) {
               {/* Stripe Placeholder Button */}
               <button
                 disabled
-                className="w-full rounded-xl bg-zinc-200 dark:bg-zinc-700 px-6 py-3.5 text-sm font-semibold text-zinc-500 dark:text-zinc-400 cursor-not-allowed"
+                className="w-full rounded-xl bg-[var(--surface-container-high)] px-6 py-3.5 text-sm font-semibold text-[var(--on-surface-variant)] cursor-not-allowed"
               >
                 {t('payment_coming_soon')}
               </button>
-              <p className="text-xs text-zinc-400">{t('payment_hint')}</p>
+              <p className="text-xs text-[var(--on-surface-variant)]">{t('payment_hint')}</p>
             </div>
 
             {/* Compare table */}
-            <div className="bg-white dark:bg-zinc-900 rounded-2xl border border-[var(--border)] shadow-sm overflow-hidden">
+            <div className="bg-[var(--surface-container)] rounded-2xl border border-[var(--outline-variant)] shadow-sm overflow-hidden">
               <div className="px-6 py-4 border-b border-[var(--border)]">
-                <h2 className="font-semibold text-zinc-900 dark:text-zinc-50 text-sm">{t('compare_title')}</h2>
+                <h2 className="font-semibold text-[var(--on-surface)] text-sm">{t('compare_title')}</h2>
               </div>
               <div className="divide-y divide-[var(--border)]">
                 {COMPARE.map((row, i) => (
                   <div key={i} className="grid grid-cols-3 gap-4 px-6 py-3 text-sm">
-                    <span className="text-zinc-600 dark:text-zinc-400">{row.feature}</span>
-                    <span className={`text-center ${row.free ? 'text-green-600' : 'text-zinc-400'}`}>
+                    <span className="text-[var(--on-surface-variant)]">{row.feature}</span>
+                    <span className={`text-center ${row.free ? 'text-green-600' : 'text-[var(--on-surface-variant)]'}`}>
                       {row.free ? '✓' : '—'}
                     </span>
                     <span className="text-center text-[var(--primary)]">✓</span>
                   </div>
                 ))}
-                <div className="grid grid-cols-3 gap-4 px-6 py-3 text-xs font-semibold text-zinc-500">
+                <div className="grid grid-cols-3 gap-4 px-6 py-3 text-xs font-semibold text-[var(--on-surface-variant)]">
                   <span />
                   <span className="text-center">Free</span>
                   <span className="text-center text-[var(--primary)]">Pro</span>
@@ -122,7 +122,7 @@ export default async function UpgradePage({ params }: Props) {
             <div className="text-center">
               <Link
                 href={`/${locale}/dashboard`}
-                className="text-sm text-zinc-500 hover:text-[var(--primary)] transition-colors"
+                className="text-sm text-[var(--on-surface-variant)] hover:text-[var(--primary)] transition-colors"
               >
                 ← {t('back_to_dashboard')}
               </Link>

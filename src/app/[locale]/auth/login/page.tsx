@@ -54,28 +54,28 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[var(--muted)] px-4">
-      <div className="w-full max-w-md bg-white dark:bg-zinc-900 rounded-2xl shadow-sm border border-[var(--border)] p-8">
+    <div className="min-h-screen flex items-center justify-center bg-[var(--surface)] px-4">
+      <div className="w-full max-w-md bg-[var(--surface-container)] rounded-2xl shadow-sm border border-[var(--outline-variant)] p-8">
         {/* Logo */}
         <div className="flex justify-center mb-6">
           <Logo className="w-10 h-10" />
         </div>
 
-        <h1 className="text-2xl font-bold text-center text-zinc-900 dark:text-zinc-50 mb-6">
+        <h1 className="text-2xl font-bold text-center text-[var(--on-surface)] mb-6">
           {t('title')}
         </h1>
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
           {/* E-Mail */}
           <div>
-            <label className="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-1">
+            <label className="block text-sm font-medium text-[var(--on-surface)] mb-1">
               {t('email')}
             </label>
             <input
               type="email"
               autoComplete="email"
               {...register('email')}
-              className="w-full rounded-lg border border-[var(--border)] bg-white dark:bg-zinc-800 px-3 py-2.5 text-sm text-zinc-900 dark:text-zinc-50 placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-[var(--primary)] focus:border-transparent transition-colors"
+              className="w-full rounded-lg border border-[var(--outline-variant)] bg-[var(--surface)] px-3 py-2.5 text-sm text-[var(--on-surface)] placeholder-[var(--on-surface-variant)] focus:outline-none focus:ring-2 focus:ring-[var(--primary)] focus:border-transparent transition-colors"
               placeholder="name@example.de"
             />
             {errors.email && (
@@ -86,7 +86,7 @@ export default function LoginPage() {
           {/* Passwort */}
           <div>
             <div className="flex items-center justify-between mb-1">
-              <label className="block text-sm font-medium text-zinc-700 dark:text-zinc-300">
+              <label className="block text-sm font-medium text-[var(--on-surface)]">
                 {t('password')}
               </label>
               <Link
@@ -100,7 +100,7 @@ export default function LoginPage() {
               type="password"
               autoComplete="current-password"
               {...register('password')}
-              className="w-full rounded-lg border border-[var(--border)] bg-white dark:bg-zinc-800 px-3 py-2.5 text-sm text-zinc-900 dark:text-zinc-50 focus:outline-none focus:ring-2 focus:ring-[var(--primary)] focus:border-transparent transition-colors"
+              className="w-full rounded-lg border border-[var(--outline-variant)] bg-[var(--surface)] px-3 py-2.5 text-sm text-[var(--on-surface)] focus:outline-none focus:ring-2 focus:ring-[var(--primary)] focus:border-transparent transition-colors"
             />
           </div>
 
@@ -114,13 +114,13 @@ export default function LoginPage() {
           <button
             type="submit"
             disabled={isLoading}
-            className="w-full rounded-lg bg-[var(--primary)] px-4 py-2.5 text-sm font-semibold text-white hover:bg-[var(--primary-dark)] disabled:opacity-50 transition-colors"
+            className="w-full rounded-lg bg-[var(--primary)] px-4 py-2.5 text-sm font-semibold text-[var(--on-primary)] hover:opacity-90 disabled:opacity-50 transition-colors"
           >
             {isLoading ? '...' : t('submit')}
           </button>
         </form>
 
-        <p className="mt-6 text-center text-sm text-zinc-500">
+        <p className="mt-6 text-center text-sm text-[var(--on-surface-variant)]">
           {t('no_account')}{' '}
           <Link href="../register" className="text-[var(--primary)] font-medium hover:underline">
             {t('register_link')}

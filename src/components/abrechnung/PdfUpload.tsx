@@ -100,13 +100,13 @@ export function PdfUpload({ onParsed, onSkip }: Props) {
           </div>
         </div>
 
-        <p className="text-sm text-zinc-500 dark:text-zinc-400">{t('check_fields')}</p>
+        <p className="text-sm text-[var(--on-surface-variant)]">{t('check_fields')}</p>
 
         <div className="flex gap-3">
           <button
             type="button"
             onClick={() => setResult(null)}
-            className="rounded-lg border border-[var(--border)] px-4 py-2.5 text-sm text-zinc-600 dark:text-zinc-300 hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors"
+            className="rounded-lg border border-[var(--outline-variant)] px-4 py-2.5 text-sm text-[var(--on-surface)] hover:bg-[var(--surface-container-high)]/50 transition-colors"
           >
             Andere PDF wählen
           </button>
@@ -184,7 +184,7 @@ export function PdfUpload({ onParsed, onSkip }: Props) {
         <button
           type="button"
           onClick={onSkip}
-          className="text-sm text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-300 transition-colors"
+          className="text-sm text-[var(--on-surface-variant)] hover:text-[var(--on-surface)] transition-colors"
         >
           {t('skip')} →
         </button>

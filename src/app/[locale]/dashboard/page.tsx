@@ -8,9 +8,9 @@ type Props = {
 };
 
 const STATUS_CLASSES: Record<string, string> = {
-  entwurf: 'bg-zinc-100 text-zinc-600 dark:bg-zinc-800 dark:text-zinc-300',
-  eingereicht: 'bg-blue-100 text-blue-700 dark:bg-blue-950 dark:text-blue-300',
-  geprueft: 'bg-green-100 text-green-700 dark:bg-green-950 dark:text-green-300',
+  entwurf: 'bg-[var(--surface-container-high)] text-[var(--on-surface-variant)]',
+  eingereicht: 'bg-[var(--secondary-container)]/50 text-[var(--secondary)]',
+  geprueft: 'bg-[var(--primary)]/15 text-[var(--primary)]',
 };
 
 export default async function DashboardPage({ params }: Props) {
@@ -34,10 +34,10 @@ export default async function DashboardPage({ params }: Props) {
     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
       {/* Header */}
       <div className="flex items-center justify-between mb-8">
-        <h1 className="text-2xl font-bold text-zinc-900 dark:text-zinc-50">{t('title')}</h1>
+        <h1 className="text-2xl font-bold text-[var(--on-surface)]">{t('title')}</h1>
         <Link
           href={`/${locale}/dashboard/abrechnung/neu`}
-          className="inline-flex items-center gap-2 rounded-lg bg-[var(--primary)] px-4 py-2.5 text-sm font-semibold text-white hover:bg-[var(--primary-dark)] transition-colors"
+          className="inline-flex items-center gap-2 rounded-lg bg-[var(--primary)] px-4 py-2.5 text-sm font-semibold text-[var(--on-primary)] hover:opacity-90 transition-colors"
         >
           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
@@ -55,11 +55,11 @@ export default async function DashboardPage({ params }: Props) {
                 d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
             </svg>
           </div>
-          <h2 className="text-lg font-semibold text-zinc-900 dark:text-zinc-50 mb-2">{t('empty_title')}</h2>
-          <p className="text-sm text-zinc-500 dark:text-zinc-400 max-w-sm mb-6">{t('empty_desc')}</p>
+          <h2 className="text-lg font-semibold text-[var(--on-surface)] mb-2">{t('empty_title')}</h2>
+          <p className="text-sm text-[var(--on-surface-variant)] max-w-sm mb-6">{t('empty_desc')}</p>
           <Link
             href={`/${locale}/dashboard/abrechnung/neu`}
-            className="inline-flex items-center gap-2 rounded-lg bg-[var(--primary)] px-5 py-2.5 text-sm font-semibold text-white hover:bg-[var(--primary-dark)] transition-colors"
+            className="inline-flex items-center gap-2 rounded-lg bg-[var(--primary)] px-5 py-2.5 text-sm font-semibold text-[var(--on-primary)] hover:opacity-90 transition-colors"
           >
             {t('add_button')}
           </Link>
@@ -81,11 +81,11 @@ export default async function DashboardPage({ params }: Props) {
               t('status_entwurf');
 
             return (
-              <div key={abr.id} className="bg-white dark:bg-zinc-900 rounded-2xl border border-[var(--border)] p-5 shadow-sm hover:shadow-md transition-shadow">
+              <div key={abr.id} className="bg-[var(--surface-container)] rounded-2xl border border-[var(--outline-variant)] p-5 shadow-sm hover:shadow-md transition-shadow">
                 <div className="flex items-start justify-between gap-3 mb-3">
                   <div className="min-w-0">
-                    <h3 className="font-semibold text-zinc-900 dark:text-zinc-50 truncate">{abr.vermieter_name}</h3>
-                    <p className="text-sm text-zinc-500">{t('abrechnung_year', { year: abr.jahr })}</p>
+                    <h3 className="font-semibold text-[var(--on-surface)] truncate">{abr.vermieter_name}</h3>
+                    <p className="text-sm text-[var(--on-surface-variant)]">{t('abrechnung_year', { year: abr.jahr })}</p>
                   </div>
                   <span className={`inline-flex rounded-full px-2.5 py-0.5 text-xs font-medium flex-shrink-0 ${statusClass}`}>
                     {statusLabel}
@@ -95,9 +95,9 @@ export default async function DashboardPage({ params }: Props) {
                 {/* Frist-Anzeige */}
                 {tageBisFrist !== null && (
                   <div className={`rounded-lg px-3 py-2 text-xs mb-3 ${
-                    isExpired ? 'bg-red-50 dark:bg-red-950 text-red-600 dark:text-red-400' :
+                    isExpired ? 'bg-[var(--error-container)] text-[var(--error)]' :
                     isCritical ? 'bg-yellow-50 dark:bg-yellow-950 text-yellow-700 dark:text-yellow-400' :
-                    'bg-[var(--muted)] dark:bg-zinc-800 text-zinc-500'
+                    'bg-[var(--surface-container-high)] text-[var(--on-surface-variant)]'
                   }`}>
                     {isExpired
                       ? t('frist_expired')
@@ -112,14 +112,14 @@ export default async function DashboardPage({ params }: Props) {
                 {abr.status === 'geprueft' ? (
                   <Link
                     href={`/${locale}/dashboard/abrechnung/${abr.id}/ergebnis`}
-                    className="block w-full text-center rounded-lg bg-[var(--primary)] px-4 py-2 text-sm font-semibold text-white hover:bg-[var(--primary-dark)] transition-colors"
+                    className="block w-full text-center rounded-lg bg-[var(--primary)] px-4 py-2 text-sm font-semibold text-[var(--on-primary)] hover:opacity-90 transition-colors"
                   >
                     {t('view_result')}
                   </Link>
                 ) : (
                   <Link
                     href={`/${locale}/dashboard/abrechnung/neu`}
-                    className="block w-full text-center rounded-lg border border-[var(--border)] px-4 py-2 text-sm font-medium text-zinc-700 dark:text-zinc-300 hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors"
+                    className="block w-full text-center rounded-lg border border-[var(--outline-variant)] px-4 py-2 text-sm font-medium text-[var(--on-surface)] hover:bg-[var(--surface-container-high)]/50 transition-colors"
                   >
                     {t('continue')}
                   </Link>

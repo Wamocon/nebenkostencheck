@@ -64,7 +64,7 @@ export function Step2Positionen({
 
   return (
     <div className="space-y-6">
-      <p className="text-sm text-zinc-500 dark:text-zinc-400">
+      <p className="text-sm text-[var(--on-surface-variant)]">
         {t('heizkosten.hint')}
       </p>
 
@@ -75,10 +75,10 @@ export function Step2Positionen({
           return (
             <div
               key={i}
-              className="rounded-xl border border-[var(--border)] bg-[var(--muted)] dark:bg-zinc-900 p-4 space-y-3"
+              className="rounded-xl border border-[var(--outline-variant)] bg-[var(--surface-container)] p-4 space-y-3"
             >
               <div className="flex items-center justify-between">
-                <span className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
+                <span className="text-sm font-medium text-[var(--on-surface)]">
                   Position {i + 1}
                 </span>
                 {positionen.length > 1 && (
@@ -95,7 +95,7 @@ export function Step2Positionen({
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {/* Kategorie-Auswahl */}
                 <div className="sm:col-span-2">
-                  <label className="block text-xs font-medium text-zinc-600 dark:text-zinc-400 mb-1">
+                  <label className="block text-xs font-medium text-[var(--on-surface-variant)] mb-1">
                     {t('positionen.kategorie')}
                   </label>
                   <select
@@ -120,7 +120,7 @@ export function Step2Positionen({
                 {/* Freitext */}
                 {showFreitext && (
                   <div className="sm:col-span-2">
-                    <label className="block text-xs font-medium text-zinc-600 dark:text-zinc-400 mb-1">
+                  <label className="block text-xs font-medium text-[var(--on-surface-variant)] mb-1">
                       {t('positionen.freitext')}
                     </label>
                     <input
@@ -135,7 +135,7 @@ export function Step2Positionen({
 
                 {/* Gesamtbetrag */}
                 <div>
-                  <label className="block text-xs font-medium text-zinc-600 dark:text-zinc-400 mb-1">
+                  <label className="block text-xs font-medium text-[var(--on-surface-variant)] mb-1">
                     {t('positionen.gesamtbetrag')}
                   </label>
                   <div className="relative">
@@ -149,13 +149,13 @@ export function Step2Positionen({
                       className="field-input text-sm pr-8"
                       placeholder="0,00"
                     />
-                    <span className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-zinc-400">€</span>
+                    <span className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-[var(--on-surface-variant)]">€</span>
                   </div>
                 </div>
 
                 {/* Mieteranteil */}
                 <div>
-                  <label className="block text-xs font-medium text-zinc-600 dark:text-zinc-400 mb-1">
+                  <label className="block text-xs font-medium text-[var(--on-surface-variant)] mb-1">
                     {t('positionen.mieter_anteil')}
                   </label>
                   <div className="relative">
@@ -169,13 +169,13 @@ export function Step2Positionen({
                       className="field-input text-sm pr-8"
                       placeholder="0,00"
                     />
-                    <span className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-zinc-400">€</span>
+                    <span className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-[var(--on-surface-variant)]">€</span>
                   </div>
                 </div>
 
                 {/* Umlageschlüssel */}
                 <div className="sm:col-span-2">
-                  <label className="block text-xs font-medium text-zinc-600 dark:text-zinc-400 mb-1">
+                  <label className="block text-xs font-medium text-[var(--on-surface-variant)] mb-1">
                     {t('positionen.umlageschluessel')}
                   </label>
                   <select
@@ -219,7 +219,7 @@ export function Step2Positionen({
         <button
           type="button"
           onClick={onBack}
-          className="rounded-lg border border-[var(--border)] px-5 py-2.5 text-sm font-semibold text-zinc-700 dark:text-zinc-300 hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors"
+          className="rounded-lg border border-[var(--outline-variant)] px-5 py-2.5 text-sm font-semibold text-[var(--on-surface)] hover:bg-[var(--surface-container-high)]/50 transition-colors"
         >
           ← {t('wizard.back')}
         </button>
@@ -227,7 +227,7 @@ export function Step2Positionen({
           type="button"
           onClick={handleSubmit}
           disabled={isLoading}
-          className="rounded-lg bg-[var(--primary)] px-6 py-2.5 text-sm font-semibold text-white hover:bg-[var(--primary-dark)] disabled:opacity-50 transition-colors"
+          className="rounded-lg bg-[var(--primary)] px-6 py-2.5 text-sm font-semibold text-[var(--on-primary)] hover:opacity-90 disabled:opacity-50 transition-colors"
         >
           {isLoading ? '...' : t('wizard.next')} →
         </button>

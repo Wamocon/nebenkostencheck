@@ -155,3 +155,20 @@ export interface ParsedPdfData {
     positions_count: number;
   };
 }
+
+// --- Notifications -----------------------------------------------------------
+
+export type NotificationType = 'frist_60' | 'frist_30' | 'frist_7' | 'frist_abgelaufen' | 'system';
+
+export interface Notification {
+  id: string;
+  user_id: string;
+  abrechnung_id: string | null;
+  typ: NotificationType;
+  titel_de: string;
+  titel_en: string;
+  nachricht_de: string | null;
+  nachricht_en: string | null;
+  gelesen: boolean;
+  erstellt_am: string;
+}

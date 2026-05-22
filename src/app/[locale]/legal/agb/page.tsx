@@ -91,20 +91,20 @@ export default async function AgbPage({ params }: Props) {
   const t = await getTranslations({ locale, namespace: 'legal' });
 
   return (
-    <div className="min-h-screen bg-[var(--muted)] dark:bg-zinc-950 py-12 px-4">
+    <div className="min-h-screen bg-[var(--surface)] py-12 px-4">
       <div className="mx-auto max-w-3xl">
-        <div className="bg-white dark:bg-zinc-900 rounded-2xl border border-[var(--border)] shadow-sm p-8 space-y-6">
-          <h1 className="text-2xl font-bold text-zinc-900 dark:text-zinc-50">{t('agb_title')}</h1>
-          <p className="text-sm text-zinc-400">{t('stand')}: Mai 2026</p>
+        <div className="bg-[var(--surface-container)] rounded-2xl border border-[var(--outline-variant)] shadow-sm p-8 space-y-6">
+          <h1 className="text-2xl font-bold text-[var(--on-surface)]">{t('agb_title')}</h1>
+          <p className="text-sm text-[var(--on-surface-variant)]">{t('stand')}: Mai 2026</p>
 
           {PARAGRAPHS.map((para) => (
             <section key={para.id}>
-              <h2 className="text-lg font-semibold text-zinc-800 dark:text-zinc-200 mb-2">
+              <h2 className="text-lg font-semibold text-[var(--on-surface)] mb-2">
                 {para.id} {para.title}
               </h2>
               <ol className="list-decimal list-inside space-y-1.5">
                 {para.content.map((text, i) => (
-                  <li key={i} className="text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed">
+                  <li key={i} className="text-[var(--on-surface-variant)] text-sm leading-relaxed">
                     {text}
                   </li>
                 ))}

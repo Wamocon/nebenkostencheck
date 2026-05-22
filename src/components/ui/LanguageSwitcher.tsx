@@ -29,7 +29,7 @@ export function LanguageSwitcher({ currentLocale }: Props) {
   };
 
   return (
-    <div className="flex items-center gap-1 rounded-lg border border-zinc-200 dark:border-zinc-700 p-1">
+    <div className="flex items-center gap-1 rounded-lg border border-[var(--outline-variant)] p-1">
       {Object.entries(localeLabels).map(([locale, label]) => (
         <button
           key={locale}
@@ -37,8 +37,8 @@ export function LanguageSwitcher({ currentLocale }: Props) {
           disabled={isPending || locale === currentLocale}
           className={`rounded px-2 py-1 text-xs font-medium transition-colors ${
             locale === currentLocale
-              ? 'bg-[var(--primary)] text-white'
-              : 'text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100'
+              ? 'bg-[var(--primary)] text-[var(--on-primary)]'
+              : 'text-[var(--on-surface-variant)] hover:text-[var(--on-surface)]'
           }`}
           aria-label={`Sprache wechseln zu ${label}`}
         >

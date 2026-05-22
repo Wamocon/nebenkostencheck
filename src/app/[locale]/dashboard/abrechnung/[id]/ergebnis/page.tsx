@@ -13,23 +13,23 @@ type Props = {
 const STATUS_BADGE: Record<string, { label: string; classes: string }> = {
   zulaessig: {
     label: 'Zulässig',
-    classes: 'bg-green-100 text-green-700 dark:bg-green-950 dark:text-green-300',
+    classes: 'bg-[var(--primary)]/15 text-[var(--primary)]',
   },
   nicht_zulaessig: {
     label: 'Nicht zulässig',
-    classes: 'bg-red-100 text-red-700 dark:bg-red-950 dark:text-red-300',
+    classes: 'bg-[var(--error)]/15 text-[var(--error)]',
   },
   pruefungswuerdig: {
     label: 'Prüfungswürdig',
-    classes: 'bg-yellow-100 text-yellow-700 dark:bg-yellow-950 dark:text-yellow-300',
+    classes: 'bg-[var(--tertiary)]/15 text-[var(--tertiary)]',
   },
   ok: {
     label: 'OK',
-    classes: 'bg-green-100 text-green-700 dark:bg-green-950 dark:text-green-300',
+    classes: 'bg-[var(--primary)]/15 text-[var(--primary)]',
   },
   fehler: {
     label: 'Fehler',
-    classes: 'bg-red-100 text-red-700 dark:bg-red-950 dark:text-red-300',
+    classes: 'bg-[var(--error)]/15 text-[var(--error)]',
   },
 };
 
@@ -96,25 +96,25 @@ export default async function ErgebnisPage({ params }: Props) {
   const isFristExpired = zusammenfassung.tage_bis_frist <= 0;
 
   return (
-    <div className="min-h-screen bg-[var(--muted)] dark:bg-zinc-950 py-8 px-4">
+    <div className="min-h-screen bg-[var(--surface)] py-8 px-4">
       <div className="mx-auto max-w-3xl space-y-6">
         {/* Breadcrumbs */}
-        <nav className="text-sm text-zinc-500 flex items-center gap-2">
+        <nav className="text-sm text-[var(--on-surface-variant)] flex items-center gap-2">
           <Link href={`/${locale}/dashboard`} className="hover:text-[var(--primary)] transition-colors">
             {tDashboard('title')}
           </Link>
           <span>/</span>
-          <span className="text-zinc-700 dark:text-zinc-300">{t('title')}</span>
+          <span className="text-[var(--on-surface)]">{t('title')}</span>
         </nav>
 
         {/* Ampel + Zusammenfassung */}
-        <div className="bg-white dark:bg-zinc-900 rounded-2xl border border-[var(--border)] p-6 shadow-sm">
+        <div className="bg-[var(--surface-container)] rounded-2xl border border-[var(--outline-variant)] p-6 shadow-sm">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
             <div>
-              <h1 className="text-xl font-bold text-zinc-900 dark:text-zinc-50 mb-1">
+              <h1 className="text-xl font-bold text-[var(--on-surface)] mb-1">
                 {t('title')} {abr.jahr}
               </h1>
-              <p className="text-sm text-zinc-500">{abr.vermieter_name}</p>
+              <p className="text-sm text-[var(--on-surface-variant)]">{abr.vermieter_name}</p>
             </div>
             <Ampel status={zusammenfassung.ampel} label={ampelLabelMap[zusammenfassung.ampel]} />
           </div>
@@ -162,14 +162,14 @@ export default async function ErgebnisPage({ params }: Props) {
         )}
 
         {/* BetrKV-Ergebnisse */}
-        <div className="bg-white dark:bg-zinc-900 rounded-2xl border border-[var(--border)] shadow-sm overflow-hidden">
-          <div className="px-6 py-4 border-b border-[var(--border)]">
-            <h2 className="font-semibold text-zinc-900 dark:text-zinc-50">Betriebskosten-Prüfung (BetrKV)</h2>
+        <div className="bg-[var(--surface-container)] rounded-2xl border border-[var(--outline-variant)] shadow-sm overflow-hidden">
+          <div className="px-6 py-4 border-b border-[var(--outline-variant)]">
+            <h2 className="font-semibold text-[var(--on-surface)]">Betriebskosten-Prüfung (BetrKV)</h2>
           </div>
 
-          <div className="divide-y divide-[var(--border)]">
+          <div className="divide-y divide-[var(--outline-variant)]">
             {betrkv.length === 0 && (
-              <p className="px-6 py-4 text-sm text-zinc-500">Keine Positionen erfasst.</p>
+              <p className="px-6 py-4 text-sm text-[var(--on-surface-variant)]">Keine Positionen erfasst.</p>
             )}
             {betrkv.map((erg) => {
               const pos = erg.positionen as Record<string, unknown> | null;
@@ -189,14 +189,14 @@ export default async function ErgebnisPage({ params }: Props) {
                         <span className={`inline-flex rounded-full px-2.5 py-0.5 text-xs font-medium ${badge.classes}`}>
                           {badge.label}
                         </span>
-                        <span className="font-medium text-sm text-zinc-900 dark:text-zinc-50 truncate">
+                        <span className="font-medium text-sm text-[var(--on-surface)] truncate">
                           {katName}
                         </span>
                       </div>
 
                       {/* Begründung: nur für Pro oder wenn zulässig */}
                       {(isPro || erg.status === 'zulaessig') ? (
-                        <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-1">
+                        <p className="text-xs text-[var(--on-surface-variant)] mt-1">
                           {locale === 'de' ? erg.begruendung_de : erg.begruendung_en}
                           {erg.gesetzesreferenz && (
                             <span className="ml-1 text-[var(--primary)]">({erg.gesetzesreferenz})</span>
@@ -204,10 +204,10 @@ export default async function ErgebnisPage({ params }: Props) {
                         </p>
                       ) : erg.status !== 'zulaessig' ? (
                         <div className="mt-1 flex items-center gap-1.5">
-                          <svg className="w-3.5 h-3.5 text-zinc-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <svg className="w-3.5 h-3.5 text-[var(--on-surface-variant)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m0-6v2m-6 6h12a2 2 0 002-2V7a2 2 0 00-2-2H6a2 2 0 00-2 2v10a2 2 0 002 2z" />
                           </svg>
-                          <span className="text-xs text-zinc-400">
+                          <span className="text-xs text-[var(--on-surface-variant)]">
                             {t('upgrade_cta')}
                           </span>
                         </div>
@@ -215,7 +215,7 @@ export default async function ErgebnisPage({ params }: Props) {
                     </div>
 
                     {mieterAnteil != null && (
-                      <span className={`text-sm font-semibold flex-shrink-0 ${erg.status === 'nicht_zulaessig' ? 'text-red-600' : 'text-zinc-700 dark:text-zinc-300'}`}>
+                      <span className={`text-sm font-semibold flex-shrink-0 ${erg.status === 'nicht_zulaessig' ? 'text-[var(--error)]' : 'text-[var(--on-surface)]'}`}>
                         {(mieterAnteil as number).toFixed(2)} €
                       </span>
                     )}
@@ -228,9 +228,9 @@ export default async function ErgebnisPage({ params }: Props) {
 
         {/* HKVO */}
         {hkvo && (
-          <div className="bg-white dark:bg-zinc-900 rounded-2xl border border-[var(--border)] shadow-sm overflow-hidden">
-            <div className="px-6 py-4 border-b border-[var(--border)]">
-              <h2 className="font-semibold text-zinc-900 dark:text-zinc-50">Heizkostenprüfung (HKVO §7)</h2>
+          <div className="bg-[var(--surface-container)] rounded-2xl border border-[var(--outline-variant)] shadow-sm overflow-hidden">
+            <div className="px-6 py-4 border-b border-[var(--outline-variant)]">
+              <h2 className="font-semibold text-[var(--on-surface)]">Heizkostenprüfung (HKVO §7)</h2>
             </div>
             <div className="px-6 py-4">
               <div className="flex items-center gap-2 mb-1">
@@ -239,12 +239,12 @@ export default async function ErgebnisPage({ params }: Props) {
                 </span>
               </div>
               {(isPro || hkvo.status === 'ok') && (
-                <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-1">
+                <p className="text-xs text-[var(--on-surface-variant)] mt-1">
                   {locale === 'de' ? hkvo.begruendung_de : hkvo.begruendung_en}
                 </p>
               )}
               {!isPro && hkvo.status === 'fehler' && (
-                <p className="text-xs text-zinc-400 mt-1">{t('upgrade_cta')}</p>
+                <p className="text-xs text-[var(--on-surface-variant)] mt-1">{t('upgrade_cta')}</p>
               )}
             </div>
           </div>
@@ -252,9 +252,9 @@ export default async function ErgebnisPage({ params }: Props) {
 
         {/* Fristprüfung */}
         {fristErg && (
-          <div className="bg-white dark:bg-zinc-900 rounded-2xl border border-[var(--border)] shadow-sm overflow-hidden">
-            <div className="px-6 py-4 border-b border-[var(--border)]">
-              <h2 className="font-semibold text-zinc-900 dark:text-zinc-50">Fristprüfung (§556 Abs. 3 BGB)</h2>
+          <div className="bg-[var(--surface-container)] rounded-2xl border border-[var(--outline-variant)] shadow-sm overflow-hidden">
+            <div className="px-6 py-4 border-b border-[var(--outline-variant)]">
+              <h2 className="font-semibold text-[var(--on-surface)]">Fristprüfung (§556 Abs. 3 BGB)</h2>
             </div>
             <div className="px-6 py-4">
               <div className="flex items-center gap-2 mb-1">
@@ -262,7 +262,7 @@ export default async function ErgebnisPage({ params }: Props) {
                   {STATUS_BADGE[fristErg.status]?.label ?? fristErg.status}
                 </span>
               </div>
-              <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-1">
+              <p className="text-xs text-[var(--on-surface-variant)] mt-1">
                 {locale === 'de' ? fristErg.begruendung_de : fristErg.begruendung_en}
               </p>
             </div>
@@ -284,8 +284,8 @@ export default async function ErgebnisPage({ params }: Props) {
               href={`/${locale}/dashboard/abrechnung/${id}/widerspruch`}
               className={`inline-flex rounded-lg px-5 py-2.5 text-sm font-semibold transition-colors ${
                 isPro
-                  ? 'bg-white text-[var(--primary)] hover:bg-zinc-100'
-                  : 'bg-white text-amber-600 hover:bg-zinc-100'
+                  ? 'bg-white text-[var(--primary)] hover:bg-white/90'
+                  : 'bg-white text-amber-600 hover:bg-white/90'
               }`}
             >
               {isPro ? t('schreiben_btn_pro') : t('schreiben_btn_free')}
@@ -294,15 +294,15 @@ export default async function ErgebnisPage({ params }: Props) {
         )}
 
         {/* RDG Disclaimer */}
-        <div className="rounded-xl bg-zinc-50 dark:bg-zinc-900 border border-[var(--border)] p-4">
-          <p className="text-xs text-zinc-400 leading-relaxed">{t('rdg_disclaimer')}</p>
+        <div className="rounded-xl bg-[var(--surface-container)] border border-[var(--outline-variant)] p-4">
+          <p className="text-xs text-[var(--on-surface-variant)] leading-relaxed">{t('rdg_disclaimer')}</p>
         </div>
 
         {/* Zurück zum Dashboard */}
         <div className="flex justify-start">
           <Link
             href={`/${locale}/dashboard`}
-            className="text-sm text-zinc-500 hover:text-[var(--primary)] transition-colors flex items-center gap-1"
+            className="text-sm text-[var(--on-surface-variant)] hover:text-[var(--primary)] transition-colors flex items-center gap-1"
           >
             ← Zurück zum Dashboard
           </Link>
@@ -325,16 +325,16 @@ function MetricCard({
 }) {
   const valueClass =
     variant === 'danger'
-      ? 'text-red-600 dark:text-red-400'
+      ? 'text-[var(--error)]'
       : variant === 'warning'
-      ? 'text-yellow-600 dark:text-yellow-400'
-      : 'text-zinc-900 dark:text-zinc-50';
+      ? 'text-[var(--tertiary)]'
+      : 'text-[var(--on-surface)]';
 
   return (
-    <div className="text-center py-3 px-2 rounded-xl bg-[var(--muted)] dark:bg-zinc-800">
-      <p className="text-xs text-zinc-500 mb-1 leading-tight">{label}</p>
+    <div className="text-center py-3 px-2 rounded-xl bg-[var(--surface-container-high)]">
+      <p className="text-xs text-[var(--on-surface-variant)] mb-1 leading-tight">{label}</p>
       <p className={`font-bold text-lg leading-tight ${valueClass}`}>{value}</p>
-      {sub && <p className="text-xs text-zinc-400 mt-0.5">{sub}</p>}
+      {sub && <p className="text-xs text-[var(--on-surface-variant)] mt-0.5">{sub}</p>}
     </div>
   );
 }

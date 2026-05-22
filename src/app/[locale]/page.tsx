@@ -173,7 +173,7 @@ export default async function HomePage({ params }: Props) {
               </ul>
               <Link
                 href={`/${locale}/auth/register`}
-                className="block w-full text-center rounded-lg bg-white px-4 py-2.5 text-sm font-semibold text-[var(--primary)] hover:bg-zinc-100 transition-colors"
+                className="block w-full text-center rounded-lg bg-white px-4 py-2.5 text-sm font-semibold text-[var(--primary)] hover:bg-white/90 transition-colors"
               >
                 {t('tariff.pro.cta')}
               </Link>
@@ -185,7 +185,7 @@ export default async function HomePage({ params }: Props) {
       {/* RDG Notice */}
       <section className="py-8 px-4 bg-[var(--surface-container-low)]">
         <div className="mx-auto max-w-3xl">
-          <p className="text-xs text-zinc-400 text-center leading-relaxed">
+          <p className="text-xs text-[var(--on-surface-variant)] text-center leading-relaxed">
             {t('rdg_notice')}
           </p>
         </div>

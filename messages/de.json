@@ -292,5 +292,14 @@
     "not_found": "Seite nicht gefunden",
     "unauthorized": "Bitte anmelden",
     "generic": "Ein Fehler ist aufgetreten. Bitte versuche es erneut."
+  },
+  "notifications": {
+    "title": "Benachrichtigungen",
+    "empty": "Keine neuen Benachrichtigungen",
+    "mark_read": "Als gelesen markieren",
+    "mark_all_read": "Alle als gelesen markieren",
+    "ago_minutes": "vor {count} Min.",
+    "ago_hours": "vor {count} Std.",
+    "ago_days": "vor {count} Tagen"
   }
 }

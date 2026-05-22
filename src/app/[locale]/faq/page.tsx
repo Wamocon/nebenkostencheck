@@ -18,12 +18,12 @@ export default async function FaqPage({ params }: Props) {
   const t = await getTranslations({ locale, namespace: 'faq' });
 
   return (
-    <div className="min-h-screen bg-[var(--muted)] dark:bg-zinc-950 py-12 px-4">
+    <div className="min-h-screen bg-[var(--surface)] py-12 px-4">
       <div className="mx-auto max-w-3xl space-y-8">
         {/* Header */}
         <div className="text-center">
-          <h1 className="text-3xl font-bold text-zinc-900 dark:text-zinc-50 mb-3">{t('title')}</h1>
-          <p className="text-zinc-500 max-w-xl mx-auto">{t('subtitle')}</p>
+          <h1 className="text-3xl font-bold text-[var(--on-surface)] mb-3">{t('title')}</h1>
+          <p className="text-[var(--on-surface-variant)] max-w-xl mx-auto">{t('subtitle')}</p>
         </div>
 
         {/* FAQ Items */}
@@ -34,11 +34,11 @@ export default async function FaqPage({ params }: Props) {
         </div>
 
         {/* CTA */}
-        <div className="bg-white dark:bg-zinc-900 rounded-2xl border border-[var(--border)] p-6 text-center">
-          <p className="text-zinc-600 dark:text-zinc-400 text-sm mb-3">{t('still_questions')}</p>
+        <div className="bg-[var(--surface-container)] rounded-2xl border border-[var(--outline-variant)] p-6 text-center">
+          <p className="text-[var(--on-surface-variant)] text-sm mb-3">{t('still_questions')}</p>
           <a
             href="mailto:info@nebenkostencheck.eu"
-            className="inline-flex rounded-lg bg-[var(--primary)] px-5 py-2.5 text-sm font-semibold text-white hover:bg-[var(--primary-dark)] transition-colors"
+            className="inline-flex rounded-lg bg-[var(--primary)] px-5 py-2.5 text-sm font-semibold text-[var(--on-primary)] hover:opacity-90 transition-colors"
           >
             {t('contact_us')}
           </a>
@@ -50,11 +50,11 @@ export default async function FaqPage({ params }: Props) {
 
 function FaqItem({ question, answer }: { question: string; answer: string }) {
   return (
-    <details className="group bg-white dark:bg-zinc-900 rounded-xl border border-[var(--border)] shadow-sm overflow-hidden">
+    <details className="group bg-[var(--surface-container)] rounded-xl border border-[var(--outline-variant)] shadow-sm overflow-hidden">
       <summary className="flex items-center justify-between gap-4 px-6 py-4 cursor-pointer list-none select-none">
-        <span className="font-medium text-zinc-800 dark:text-zinc-200 text-sm">{question}</span>
+        <span className="font-medium text-[var(--on-surface)] text-sm">{question}</span>
         <svg
-          className="w-4 h-4 text-zinc-400 flex-shrink-0 transition-transform group-open:rotate-180"
+          className="w-4 h-4 text-[var(--on-surface-variant)] flex-shrink-0 transition-transform group-open:rotate-180"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -62,7 +62,7 @@ function FaqItem({ question, answer }: { question: string; answer: string }) {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
         </svg>
       </summary>
-      <div className="px-6 pb-5 text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed border-t border-[var(--border)] pt-4">
+      <div className="px-6 pb-5 text-sm text-[var(--on-surface-variant)] leading-relaxed border-t border-[var(--outline-variant)] pt-4">
         {answer}
       </div>
     </details>

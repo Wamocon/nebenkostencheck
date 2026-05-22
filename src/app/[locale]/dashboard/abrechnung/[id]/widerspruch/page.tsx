@@ -60,7 +60,7 @@ export default async function WiderspruchPage({ params }: Props) {
   const letterHtml = letterText
     .split('\n')
     .map((line) => {
-      if (line === '---') return '<hr class="my-4 border-zinc-300 dark:border-zinc-600" />';
+      if (line === '---') return '<hr class="my-4 border-[var(--outline-variant)]" />';
       if (line === '') return '<br />';
       return `<p class="leading-relaxed">${escapeHtml(line)}</p>`;
     })
@@ -82,11 +82,11 @@ export default async function WiderspruchPage({ params }: Props) {
         }
       `}</style>
 
-      <div className="min-h-screen bg-[var(--muted)] dark:bg-zinc-950 py-8 px-4 print:bg-white">
+      <div className="min-h-screen bg-[var(--surface)] py-8 px-4 print:bg-white">
         <div className="mx-auto max-w-3xl space-y-5">
 
           {/* Breadcrumb - no-print */}
-          <nav className="no-print text-sm text-zinc-500 flex items-center gap-2">
+          <nav className="no-print text-sm text-[var(--on-surface-variant)] flex items-center gap-2">
             <Link href={`/${locale}/dashboard`} className="hover:text-[var(--primary)] transition-colors">
               {tDashboard('title')}
             </Link>
@@ -95,15 +95,15 @@ export default async function WiderspruchPage({ params }: Props) {
               {t('back_to_result')}
             </Link>
             <span>/</span>
-            <span className="text-zinc-700 dark:text-zinc-300">{t('title')}</span>
+            <span className="text-[var(--on-surface)]">{t('title')}</span>
           </nav>
 
           {/* Header - no-print */}
-          <div className="no-print bg-white dark:bg-zinc-900 rounded-2xl border border-[var(--border)] p-5 shadow-sm">
+          <div className="no-print bg-[var(--surface-container)] rounded-2xl border border-[var(--outline-variant)] p-5 shadow-sm">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
               <div>
-                <h1 className="text-xl font-bold text-zinc-900 dark:text-zinc-50 mb-0.5">{t('title')}</h1>
-                <p className="text-sm text-zinc-500">
+                <h1 className="text-xl font-bold text-[var(--on-surface)] mb-0.5">{t('title')}</h1>
+                <p className="text-sm text-[var(--on-surface-variant)]">
                   {t('subtitle', { vermieter: abr.vermieter_name, jahr: abr.jahr })}
                 </p>
               </div>
@@ -139,9 +139,9 @@ export default async function WiderspruchPage({ params }: Props) {
           )}
 
           {/* Letter */}
-          <div className={`bg-white dark:bg-zinc-900 rounded-2xl border border-[var(--border)] p-8 shadow-sm print-letter ${!isPro ? 'select-none pointer-events-none relative overflow-hidden' : ''}`}>
+          <div className={`bg-[var(--surface-container)] rounded-2xl border border-[var(--outline-variant)] p-8 shadow-sm print-letter ${!isPro ? 'select-none pointer-events-none relative overflow-hidden' : ''}`}>
             {!isPro && (
-              <div className="absolute inset-0 backdrop-blur-sm bg-white/60 dark:bg-zinc-900/60 z-10 flex items-center justify-center">
+              <div className="absolute inset-0 backdrop-blur-sm bg-[var(--surface)]/60 z-10 flex items-center justify-center">
                 <Link
                   href={`/${locale}/dashboard/upgrade`}
                   className="rounded-xl bg-[var(--primary)] px-6 py-3 text-white font-semibold hover:bg-[var(--primary-dark)] transition-colors shadow-lg"
@@ -151,21 +151,21 @@ export default async function WiderspruchPage({ params }: Props) {
               </div>
             )}
             <div
-              className="prose prose-zinc dark:prose-invert max-w-none text-sm leading-relaxed font-mono"
+              className="prose dark:prose-invert max-w-none text-sm leading-relaxed font-mono"
               dangerouslySetInnerHTML={{ __html: letterHtml }}
             />
           </div>
 
           {/* RDG Disclaimer */}
-          <div className="no-print rounded-xl bg-zinc-50 dark:bg-zinc-900 border border-[var(--border)] p-4">
-            <p className="text-xs text-zinc-400 leading-relaxed">{t('rdg_disclaimer')}</p>
+          <div className="no-print rounded-xl bg-[var(--surface-container-high)] border border-[var(--outline-variant)] p-4">
+            <p className="text-xs text-[var(--on-surface-variant)] leading-relaxed">{t('rdg_disclaimer')}</p>
           </div>
 
           {/* Back button */}
           <div className="no-print flex justify-start">
             <Link
               href={`/${locale}/dashboard/abrechnung/${id}/ergebnis`}
-              className="text-sm text-zinc-500 hover:text-[var(--primary)] transition-colors flex items-center gap-1"
+              className="text-sm text-[var(--on-surface-variant)] hover:text-[var(--primary)] transition-colors flex items-center gap-1"
             >
               ← {t('back_to_result')}
             </Link>

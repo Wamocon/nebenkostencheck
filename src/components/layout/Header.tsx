@@ -3,6 +3,7 @@ import { useTranslations } from 'next-intl';
 import { Logo } from '@/components/ui/Logo';
 import { ThemeToggle } from '@/components/ui/ThemeToggle';
 import { LanguageSwitcher } from '@/components/ui/LanguageSwitcher';
+import { NotificationBell } from '@/components/ui/NotificationBell';
 
 type Props = {
   locale: string;
@@ -37,8 +38,9 @@ export function Header({ locale }: Props) {
             </Link>
           </nav>
 
-          {/* Rechte Seite: Auth, Sprache, Theme */}
+          {/* Rechte Seite: Notifications, Sprache, Theme, Auth */}
           <div className="flex items-center gap-3">
+            <NotificationBell />
             <LanguageSwitcher currentLocale={locale} />
             <ThemeToggle />
             <Link
