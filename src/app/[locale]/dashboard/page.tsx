@@ -31,13 +31,13 @@ export default async function DashboardPage({ params }: Props) {
   const today = new Date();
 
   return (
-    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
+    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
       {/* Header */}
-      <div className="flex items-center justify-between mb-8">
-        <h1 className="text-2xl font-bold text-[var(--on-surface)]">{t('title')}</h1>
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between mb-6 sm:mb-8">
+        <h1 className="text-xl sm:text-2xl font-bold text-[var(--on-surface)]">{t('title')}</h1>
         <Link
           href={`/${locale}/dashboard/abrechnung/neu`}
-          className="inline-flex items-center gap-2 rounded-lg bg-[var(--primary)] px-4 py-2.5 text-sm font-semibold text-[var(--on-primary)] hover:opacity-90 transition-colors"
+          className="inline-flex items-center justify-center gap-2 rounded-lg bg-[var(--primary)] px-4 py-2.5 text-sm font-semibold text-[var(--on-primary)] hover:opacity-90 transition-colors w-full sm:w-auto"
         >
           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />

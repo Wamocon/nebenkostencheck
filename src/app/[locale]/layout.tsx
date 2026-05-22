@@ -7,6 +7,7 @@ import { Toaster } from 'sonner';
 import '../globals.css';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
+import { BottomNav } from '@/components/layout/BottomNav';
 
 const manrope = Manrope({
   variable: '--font-manrope',
@@ -49,14 +50,16 @@ export default async function LocaleLayout({ children, params }: Props) {
     <html
       lang={locale}
       className={`${manrope.variable} ${jetbrainsMono.variable} h-full antialiased`}
+      data-scroll-behavior="smooth"
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col bg-[var(--background)] text-[var(--foreground)]">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <NextIntlClientProvider messages={messages}>
             <Header locale={locale} />
-            <main className="flex-1">{children}</main>
+            <main className="flex-1 pb-16 md:pb-0">{children}</main>
             <Footer locale={locale} />
+            <BottomNav locale={locale} />
             <Toaster richColors position="top-right" />
           </NextIntlClientProvider>
         </ThemeProvider>

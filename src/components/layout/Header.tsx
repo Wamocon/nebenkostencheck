@@ -4,7 +4,6 @@ import { Logo } from '@/components/ui/Logo';
 import { ThemeToggle } from '@/components/ui/ThemeToggle';
 import { LanguageSwitcher } from '@/components/ui/LanguageSwitcher';
 import { NotificationBell } from '@/components/ui/NotificationBell';
-import { MobileMenu } from './MobileMenu';
 
 type Props = {
   locale: string;
@@ -29,7 +28,7 @@ export function Header({ locale }: Props) {
             </span>
           </Link>
 
-          {/* Navigation */}
+          {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-[var(--on-surface-variant)]">
             <Link href={`/${locale}/dashboard`} className="hover:text-[var(--on-surface)] transition-colors">
               {t('dashboard')}
@@ -46,17 +45,16 @@ export function Header({ locale }: Props) {
             <ThemeToggle />
             <Link
               href={`/${locale}/auth/login`}
-              className="hidden sm:inline-flex rounded-lg border border-[var(--primary)] px-4 py-2 text-sm font-medium text-[var(--primary)] hover:bg-[var(--primary)]/10 transition-colors"
+              className="hidden md:inline-flex rounded-lg border border-[var(--primary)] px-4 py-2 text-sm font-medium text-[var(--primary)] hover:bg-[var(--primary)]/10 transition-colors"
             >
               {t('login')}
             </Link>
             <Link
               href={`/${locale}/auth/register`}
-              className="hidden sm:inline-flex rounded-lg bg-[var(--primary)] px-4 py-2 text-sm font-medium text-[var(--on-primary)] hover:opacity-90 transition-opacity"
+              className="hidden md:inline-flex rounded-lg bg-[var(--primary)] px-4 py-2 text-sm font-medium text-[var(--on-primary)] hover:opacity-90 transition-opacity"
             >
               {t('register')}
             </Link>
-            <MobileMenu locale={locale} />
           </div>
         </div>
       </div>

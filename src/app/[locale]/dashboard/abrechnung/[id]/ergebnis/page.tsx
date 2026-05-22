@@ -96,22 +96,22 @@ export default async function ErgebnisPage({ params }: Props) {
   const isFristExpired = zusammenfassung.tage_bis_frist <= 0;
 
   return (
-    <div className="min-h-screen bg-[var(--surface)] py-8 px-4">
-      <div className="mx-auto max-w-3xl space-y-6">
+    <div className="min-h-screen bg-[var(--surface)] py-4 sm:py-8 px-4">
+      <div className="mx-auto max-w-3xl space-y-4 sm:space-y-6">
         {/* Breadcrumbs */}
-        <nav className="text-sm text-[var(--on-surface-variant)] flex items-center gap-2">
-          <Link href={`/${locale}/dashboard`} className="hover:text-[var(--primary)] transition-colors">
+        <nav className="text-sm text-[var(--on-surface-variant)] flex items-center gap-2 overflow-x-auto">
+          <Link href={`/${locale}/dashboard`} className="hover:text-[var(--primary)] transition-colors flex-shrink-0">
             {tDashboard('title')}
           </Link>
-          <span>/</span>
-          <span className="text-[var(--on-surface)]">{t('title')}</span>
+          <span className="flex-shrink-0">/</span>
+          <span className="text-[var(--on-surface)] truncate">{t('title')}</span>
         </nav>
 
         {/* Ampel + Zusammenfassung */}
-        <div className="bg-[var(--surface-container)] rounded-2xl border border-[var(--outline-variant)] p-6 shadow-sm">
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
+        <div className="bg-[var(--surface-container)] rounded-2xl border border-[var(--outline-variant)] p-4 sm:p-6 shadow-sm">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-5 sm:mb-6">
             <div>
-              <h1 className="text-xl font-bold text-[var(--on-surface)] mb-1">
+              <h1 className="text-lg sm:text-xl font-bold text-[var(--on-surface)] mb-1">
                 {t('title')} {abr.jahr}
               </h1>
               <p className="text-sm text-[var(--on-surface-variant)]">{abr.vermieter_name}</p>
@@ -120,7 +120,7 @@ export default async function ErgebnisPage({ params }: Props) {
           </div>
 
           {/* Kennzahlen */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">
             <MetricCard
               label="Nicht zulässig"
               value={String(zusammenfassung.anzahl_nicht_zulaessig)}
@@ -163,13 +163,13 @@ export default async function ErgebnisPage({ params }: Props) {
 
         {/* BetrKV-Ergebnisse */}
         <div className="bg-[var(--surface-container)] rounded-2xl border border-[var(--outline-variant)] shadow-sm overflow-hidden">
-          <div className="px-6 py-4 border-b border-[var(--outline-variant)]">
-            <h2 className="font-semibold text-[var(--on-surface)]">Betriebskosten-Prüfung (BetrKV)</h2>
+          <div className="px-4 sm:px-6 py-3 sm:py-4 border-b border-[var(--outline-variant)]">
+            <h2 className="font-semibold text-sm sm:text-base text-[var(--on-surface)]">Betriebskosten-Prüfung (BetrKV)</h2>
           </div>
 
           <div className="divide-y divide-[var(--outline-variant)]">
             {betrkv.length === 0 && (
-              <p className="px-6 py-4 text-sm text-[var(--on-surface-variant)]">Keine Positionen erfasst.</p>
+              <p className="px-4 sm:px-6 py-4 text-sm text-[var(--on-surface-variant)]">Keine Positionen erfasst.</p>
             )}
             {betrkv.map((erg) => {
               const pos = erg.positionen as Record<string, unknown> | null;
@@ -182,8 +182,8 @@ export default async function ErgebnisPage({ params }: Props) {
               const mieterAnteil = pos?.mieter_anteil as number | null;
 
               return (
-                <div key={erg.id} className="px-6 py-4">
-                  <div className="flex items-start justify-between gap-4">
+                <div key={erg.id} className="px-4 sm:px-6 py-3 sm:py-4">
+                  <div className="flex items-start justify-between gap-3">
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2 mb-1">
                         <span className={`inline-flex rounded-full px-2.5 py-0.5 text-xs font-medium ${badge.classes}`}>
@@ -229,10 +229,10 @@ export default async function ErgebnisPage({ params }: Props) {
         {/* HKVO */}
         {hkvo && (
           <div className="bg-[var(--surface-container)] rounded-2xl border border-[var(--outline-variant)] shadow-sm overflow-hidden">
-            <div className="px-6 py-4 border-b border-[var(--outline-variant)]">
-              <h2 className="font-semibold text-[var(--on-surface)]">Heizkostenprüfung (HKVO §7)</h2>
+            <div className="px-4 sm:px-6 py-3 sm:py-4 border-b border-[var(--outline-variant)]">
+              <h2 className="font-semibold text-sm sm:text-base text-[var(--on-surface)]">Heizkostenprüfung (HKVO §7)</h2>
             </div>
-            <div className="px-6 py-4">
+            <div className="px-4 sm:px-6 py-3 sm:py-4">
               <div className="flex items-center gap-2 mb-1">
                 <span className={`inline-flex rounded-full px-2.5 py-0.5 text-xs font-medium ${STATUS_BADGE[hkvo.status]?.classes ?? ''}`}>
                   {STATUS_BADGE[hkvo.status]?.label ?? hkvo.status}
@@ -253,10 +253,10 @@ export default async function ErgebnisPage({ params }: Props) {
         {/* Fristprüfung */}
         {fristErg && (
           <div className="bg-[var(--surface-container)] rounded-2xl border border-[var(--outline-variant)] shadow-sm overflow-hidden">
-            <div className="px-6 py-4 border-b border-[var(--outline-variant)]">
-              <h2 className="font-semibold text-[var(--on-surface)]">Fristprüfung (§556 Abs. 3 BGB)</h2>
+            <div className="px-4 sm:px-6 py-3 sm:py-4 border-b border-[var(--outline-variant)]">
+              <h2 className="font-semibold text-sm sm:text-base text-[var(--on-surface)]">Fristprüfung (§556 Abs. 3 BGB)</h2>
             </div>
-            <div className="px-6 py-4">
+            <div className="px-4 sm:px-6 py-3 sm:py-4">
               <div className="flex items-center gap-2 mb-1">
                 <span className={`inline-flex rounded-full px-2.5 py-0.5 text-xs font-medium ${STATUS_BADGE[fristErg.status]?.classes ?? ''}`}>
                   {STATUS_BADGE[fristErg.status]?.label ?? fristErg.status}
@@ -271,8 +271,8 @@ export default async function ErgebnisPage({ params }: Props) {
 
         {/* Widerspruchsschreiben CTA */}
         {zusammenfassung.anzahl_nicht_zulaessig > 0 && (
-          <div className={`rounded-2xl p-6 text-white ${isPro ? 'bg-[var(--primary)]' : 'bg-amber-500'}`}>
-            <h3 className="font-bold text-lg mb-1">
+          <div className={`rounded-2xl p-5 sm:p-6 text-white ${isPro ? 'bg-[var(--primary)]' : 'bg-amber-500'}`}>
+            <h3 className="font-bold text-base sm:text-lg mb-1">
               {isPro ? t('schreiben_cta_pro') : t('schreiben_cta_free')}
             </h3>
             <p className="text-white/80 text-sm mb-4">

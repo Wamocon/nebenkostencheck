@@ -82,27 +82,27 @@ export default async function WiderspruchPage({ params }: Props) {
         }
       `}</style>
 
-      <div className="min-h-screen bg-[var(--surface)] py-8 px-4 print:bg-white">
-        <div className="mx-auto max-w-3xl space-y-5">
+      <div className="min-h-screen bg-[var(--surface)] py-4 sm:py-8 px-4 print:bg-white">
+        <div className="mx-auto max-w-3xl space-y-4 sm:space-y-5">
 
           {/* Breadcrumb - no-print */}
-          <nav className="no-print text-sm text-[var(--on-surface-variant)] flex items-center gap-2">
-            <Link href={`/${locale}/dashboard`} className="hover:text-[var(--primary)] transition-colors">
+          <nav className="no-print text-sm text-[var(--on-surface-variant)] flex items-center gap-2 overflow-x-auto">
+            <Link href={`/${locale}/dashboard`} className="hover:text-[var(--primary)] transition-colors flex-shrink-0">
               {tDashboard('title')}
             </Link>
-            <span>/</span>
-            <Link href={`/${locale}/dashboard/abrechnung/${id}/ergebnis`} className="hover:text-[var(--primary)] transition-colors">
+            <span className="flex-shrink-0">/</span>
+            <Link href={`/${locale}/dashboard/abrechnung/${id}/ergebnis`} className="hover:text-[var(--primary)] transition-colors flex-shrink-0">
               {t('back_to_result')}
             </Link>
-            <span>/</span>
-            <span className="text-[var(--on-surface)]">{t('title')}</span>
+            <span className="flex-shrink-0">/</span>
+            <span className="text-[var(--on-surface)] truncate">{t('title')}</span>
           </nav>
 
           {/* Header - no-print */}
-          <div className="no-print bg-[var(--surface-container)] rounded-2xl border border-[var(--outline-variant)] p-5 shadow-sm">
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+          <div className="no-print bg-[var(--surface-container)] rounded-2xl border border-[var(--outline-variant)] p-4 sm:p-5 shadow-sm">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4">
               <div>
-                <h1 className="text-xl font-bold text-[var(--on-surface)] mb-0.5">{t('title')}</h1>
+                <h1 className="text-lg sm:text-xl font-bold text-[var(--on-surface)] mb-0.5">{t('title')}</h1>
                 <p className="text-sm text-[var(--on-surface-variant)]">
                   {t('subtitle', { vermieter: abr.vermieter_name, jahr: abr.jahr })}
                 </p>
@@ -139,7 +139,7 @@ export default async function WiderspruchPage({ params }: Props) {
           )}
 
           {/* Letter */}
-          <div className={`bg-[var(--surface-container)] rounded-2xl border border-[var(--outline-variant)] p-8 shadow-sm print-letter ${!isPro ? 'select-none pointer-events-none relative overflow-hidden' : ''}`}>
+          <div className={`bg-[var(--surface-container)] rounded-2xl border border-[var(--outline-variant)] p-5 sm:p-8 shadow-sm print-letter ${!isPro ? 'select-none pointer-events-none relative overflow-hidden' : ''}`}>
             {!isPro && (
               <div className="absolute inset-0 backdrop-blur-sm bg-[var(--surface)]/60 z-10 flex items-center justify-center">
                 <Link

@@ -8,11 +8,24 @@ type Props = {
 
 export function ProgressBar({ currentStep, totalSteps, labels }: Props) {
   return (
-    <div className="w-full mb-8">
-      {/* Mobile: Step X von Y */}
-      <p className="text-sm text-[var(--on-surface-variant)] mb-3 sm:hidden">
-        Schritt {currentStep} von {totalSteps}
-      </p>
+    <div className="w-full mb-6 sm:mb-8">
+      {/* Mobile: Step counter + progress bar */}
+      <div className="sm:hidden">
+        <div className="flex items-center justify-between mb-2">
+          <p className="text-sm font-medium text-[var(--on-surface)]">
+            {labels[currentStep - 1]}
+          </p>
+          <p className="text-xs text-[var(--on-surface-variant)]">
+            {currentStep}/{totalSteps}
+          </p>
+        </div>
+        <div className="h-1.5 w-full rounded-full bg-[var(--surface-container-high)]">
+          <div
+            className="h-1.5 rounded-full bg-[var(--primary)] transition-all duration-300"
+            style={{ width: `${(currentStep / totalSteps) * 100}%` }}
+          />
+        </div>
+      </div>
 
       {/* Desktop: Schritt-Labels */}
       <div className="hidden sm:flex items-center gap-0">

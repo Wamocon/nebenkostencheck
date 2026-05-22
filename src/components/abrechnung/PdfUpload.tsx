@@ -142,7 +142,7 @@ export function PdfUpload({ onParsed, onSkip }: Props) {
         onDragLeave={() => setIsDragging(false)}
         onDrop={handleDrop}
         disabled={isLoading}
-        className={`w-full rounded-2xl border-2 border-dashed p-10 text-center transition-colors cursor-pointer ${
+        className={`w-full rounded-2xl border-2 border-dashed p-6 sm:p-10 text-center transition-colors cursor-pointer ${
           isDragging
             ? 'border-[var(--primary)] bg-[var(--primary)]/10'
             : 'border-[var(--outline-variant)] hover:border-[var(--primary)] hover:bg-[var(--primary)]/5'
