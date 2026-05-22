@@ -1,61 +1,335 @@
 @import "tailwindcss";
 
+/* =====================================================
+   Pro-Check Design System
+   Source: Stitch project 17375466493465437689
+   Primary: Emerald (#10b981) | Font: Manrope + JetBrains Mono
+   Style: Corporate Modern, Tonal Layering
+   ===================================================== */
+
+/* --- Light Mode (System Default) --- */
 :root {
-  /* NebenkostenCheck Brand Colors */
-  --primary: #1a6b4a;
-  --primary-dark: #0f4a33;
-  --primary-light: #2d9c6f;
-  --accent: #e8f5ef;
+  /* Surfaces */
+  --surface:                   #f0f7f4;
+  --surface-dim:               #e4ede9;
+  --surface-bright:            #ffffff;
+  --surface-container-lowest:  #ffffff;
+  --surface-container-low:     #f4f9f6;
+  --surface-container:         #eef4f0;
+  --surface-container-high:    #e8efe9;
+  --surface-container-highest: #e2e9e4;
+  --surface-variant:           #dce8e0;
+  --surface-tint:              #006c49;
 
-  --background: #ffffff;
-  --foreground: #171717;
-  --muted: #f4f4f5;
-  --muted-foreground: #71717a;
-  --border: #e4e4e7;
+  /* On-Surface */
+  --on-surface:         #1a2622;
+  --on-surface-variant: #3f4e46;
+
+  /* Outline */
+  --outline:         #6f7f77;
+  --outline-variant: #bec9c1;
+
+  /* Primary - Emerald */
+  --primary:              #006c49;
+  --on-primary:           #ffffff;
+  --primary-container:    #90f7c5;
+  --on-primary-container: #002113;
+  --primary-fixed:        #6ffbbe;
+  --primary-fixed-dim:    #4edea3;
+
+  /* Secondary - Slate */
+  --secondary:              #4a6071;
+  --on-secondary:           #ffffff;
+  --secondary-container:    #cde5f9;
+  --on-secondary-container: #051e2b;
+
+  /* Tertiary */
+  --tertiary:              #545b7b;
+  --on-tertiary:           #ffffff;
+  --tertiary-container:    #dce0ff;
+  --on-tertiary-container: #101834;
+
+  /* Error */
+  --error:              #ba1a1a;
+  --on-error:           #ffffff;
+  --error-container:    #ffdad6;
+  --on-error-container: #410002;
+
+  /* Background */
+  --background:    #f8fbf8;
+  --on-background: #1a2622;
+
+  /* Inverse */
+  --inverse-surface:    #2d3833;
+  --inverse-on-surface: #ecf2ec;
+  --inverse-primary:    #4edea3;
+
+  /* Legacy aliases (backward compat) */
+  --primary-dark:       #005236;
+  --primary-light:      #4edea3;
+  --accent:             #e8f5ef;
+  --foreground:         var(--on-surface);
+  --muted:              var(--surface-container-low);
+  --muted-foreground:   var(--on-surface-variant);
+  --border:             var(--outline-variant);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-primary: var(--primary);
-  --color-primary-dark: var(--primary-dark);
-  --color-primary-light: var(--primary-light);
-  --color-accent: var(--accent);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-border: var(--border);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
+/* --- Dark Mode - Exact Stitch Pro-Check Palette --- */
 .dark {
-  --primary: #2d9c6f;
-  --primary-dark: #1a6b4a;
-  --primary-light: #4dc49a;
-  --accent: #0d2b1f;
+  /* Surfaces */
+  --surface:                   #051424;
+  --surface-dim:               #051424;
+  --surface-bright:            #2c3a4c;
+  --surface-container-lowest:  #010f1f;
+  --surface-container-low:     #0d1c2d;
+  --surface-container:         #122131;
+  --surface-container-high:    #1c2b3c;
+  --surface-container-highest: #273647;
+  --surface-variant:           #273647;
+  --surface-tint:              #4edea3;
 
-  --background: #09090b;
-  --foreground: #fafafa;
-  --muted: #18181b;
-  --muted-foreground: #a1a1aa;
-  --border: #27272a;
+  /* On-Surface */
+  --on-surface:         #d4e4fa;
+  --on-surface-variant: #bbcabf;
+
+  /* Outline */
+  --outline:         #86948a;
+  --outline-variant: #3c4a42;
+
+  /* Primary - Emerald (vibrant on dark) */
+  --primary:              #4edea3;
+  --on-primary:           #003824;
+  --primary-container:    #10b981;
+  --on-primary-container: #00422b;
+  --primary-fixed:        #6ffbbe;
+  --primary-fixed-dim:    #4edea3;
+
+  /* Secondary - Slate Blue */
+  --secondary:              #b9c7e0;
+  --on-secondary:           #233144;
+  --secondary-container:    #3c4a5e;
+  --on-secondary-container: #abb9d2;
+
+  /* Tertiary */
+  --tertiary:              #bec6e0;
+  --on-tertiary:           #283044;
+  --tertiary-container:    #9ba2bb;
+  --on-tertiary-container: #31394d;
+
+  /* Error */
+  --error:              #ffb4ab;
+  --on-error:           #690005;
+  --error-container:    #93000a;
+  --on-error-container: #ffdad6;
+
+  /* Background */
+  --background:    #051424;
+  --on-background: #d4e4fa;
+
+  /* Inverse */
+  --inverse-surface:    #d4e4fa;
+  --inverse-on-surface: #233143;
+  --inverse-primary:    #006c49;
+
+  /* Legacy aliases */
+  --primary-dark:     #006c49;
+  --primary-light:    #6ffbbe;
+  --accent:           #003824;
+  --foreground:       var(--on-surface);
+  --muted:            var(--surface-container);
+  --muted-foreground: var(--on-surface-variant);
+  --border:           var(--outline-variant);
 }
 
+/* --- Tailwind v4 Theme Registration --- */
+@theme inline {
+  /* Core semantic */
+  --color-background:    var(--background);
+  --color-foreground:    var(--foreground);
+
+  /* Surfaces */
+  --color-surface:                   var(--surface);
+  --color-surface-dim:               var(--surface-dim);
+  --color-surface-bright:            var(--surface-bright);
+  --color-surface-container-lowest:  var(--surface-container-lowest);
+  --color-surface-container-low:     var(--surface-container-low);
+  --color-surface-container:         var(--surface-container);
+  --color-surface-container-high:    var(--surface-container-high);
+  --color-surface-container-highest: var(--surface-container-highest);
+  --color-surface-variant:           var(--surface-variant);
+  --color-surface-tint:              var(--surface-tint);
+  --color-on-surface:                var(--on-surface);
+  --color-on-surface-variant:        var(--on-surface-variant);
+
+  /* Outline */
+  --color-outline:         var(--outline);
+  --color-outline-variant: var(--outline-variant);
+
+  /* Primary */
+  --color-primary:              var(--primary);
+  --color-on-primary:           var(--on-primary);
+  --color-primary-container:    var(--primary-container);
+  --color-on-primary-container: var(--on-primary-container);
+
+  /* Secondary */
+  --color-secondary:              var(--secondary);
+  --color-on-secondary:           var(--on-secondary);
+  --color-secondary-container:    var(--secondary-container);
+  --color-on-secondary-container: var(--on-secondary-container);
+
+  /* Tertiary */
+  --color-tertiary:              var(--tertiary);
+  --color-on-tertiary:           var(--on-tertiary);
+  --color-tertiary-container:    var(--tertiary-container);
+  --color-on-tertiary-container: var(--on-tertiary-container);
+
+  /* Error */
+  --color-error:              var(--error);
+  --color-on-error:           var(--on-error);
+  --color-error-container:    var(--error-container);
+  --color-on-error-container: var(--on-error-container);
+
+  /* Legacy */
+  --color-primary-dark:     var(--primary-dark);
+  --color-primary-light:    var(--primary-light);
+  --color-accent:           var(--accent);
+  --color-muted:            var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border:           var(--border);
+
+  /* Typography */
+  --font-sans: var(--font-manrope);
+  --font-mono: var(--font-jetbrains-mono);
+
+  /* Rounded corners (Stitch: ROUND_EIGHT) */
+  --radius-sm:   0.25rem;
+  --radius-md:   0.5rem;
+  --radius-lg:   1rem;
+  --radius-xl:   1.5rem;
+  --radius-full: 9999px;
+}
+
+/* --- Base Styles --- */
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: var(--font-sans, Arial, Helvetica, sans-serif);
+  font-family: var(--font-sans, Manrope, sans-serif);
 }
 
-/* Gemeinsame Formular-Klassen */
+/* --- Elevation / Depth Utilities --- */
+/* Level 0: Canvas (no shadow) */
+.elevation-0 {
+  background-color: var(--surface);
+}
+
+/* Level 1: Card - primary content surface */
+.elevation-1 {
+  background-color: var(--surface-container);
+  border: 1px solid var(--outline-variant);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* Level 2: Elevated - modals, focused elements */
+.elevation-2 {
+  background-color: var(--surface-container-high);
+  border: 1px solid var(--outline);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+/* --- Highlight / Glow Utilities (Stitch "Highlights" concept) --- */
+.highlight-glow {
+  box-shadow: 0 0 0 1px var(--primary), 0 0 16px 2px color-mix(in srgb, var(--primary) 30%, transparent);
+}
+
+.highlight-glow-sm {
+  box-shadow: 0 0 0 1px var(--primary), 0 0 8px 1px color-mix(in srgb, var(--primary) 25%, transparent);
+}
+
+/* Status badge with pulse for positive results */
+.badge-success {
+  background-color: color-mix(in srgb, var(--primary) 12%, transparent);
+  color: var(--primary);
+  border: 1px solid color-mix(in srgb, var(--primary) 40%, transparent);
+  border-radius: var(--radius-full);
+  padding: 0.125rem 0.625rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+.badge-error {
+  background-color: color-mix(in srgb, var(--error) 12%, transparent);
+  color: var(--error);
+  border: 1px solid color-mix(in srgb, var(--error) 40%, transparent);
+  border-radius: var(--radius-full);
+  padding: 0.125rem 0.625rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.badge-warning {
+  background-color: color-mix(in srgb, #f59e0b 12%, transparent);
+  color: #f59e0b;
+  border: 1px solid color-mix(in srgb, #f59e0b 40%, transparent);
+  border-radius: var(--radius-full);
+  padding: 0.125rem 0.625rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+/* Pulse animation for active/highlight states */
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 0 1px var(--primary), 0 0 12px 2px color-mix(in srgb, var(--primary) 25%, transparent); }
+  50%       { box-shadow: 0 0 0 1px var(--primary), 0 0 20px 6px color-mix(in srgb, var(--primary) 40%, transparent); }
+}
+
+.highlight-pulse {
+  animation: glow-pulse 2.5s ease-in-out infinite;
+}
+
+/* --- Data / Mono Values (JetBrains Mono for currency + technical data) --- */
+.data-value {
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  color: var(--on-surface);
+}
+
+.data-value-lg {
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--primary);
+}
+
+/* --- Form Field Classes (updated to Pro-Check tokens) --- */
 .field-input {
-  @apply w-full rounded-lg border border-[var(--border)] bg-white dark:bg-zinc-800
-    px-3 py-2.5 text-sm text-zinc-900 dark:text-zinc-50 placeholder-zinc-400
-    focus:outline-none focus:ring-2 focus:ring-[var(--primary)] focus:border-transparent
-    transition-colors;
+  width: 100%;
+  border-radius: 0.5rem;
+  border: 1px solid var(--outline-variant);
+  background-color: var(--surface-container-low);
+  padding: 0.625rem 0.75rem;
+  font-size: 0.875rem;
+  color: var(--on-surface);
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+}
+
+.field-input::placeholder {
+  color: var(--on-surface-variant);
+  opacity: 0.7;
+}
+
+.field-input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--primary) 20%, transparent);
 }
 
 .field-error {
-  @apply mt-1 text-xs text-red-600 dark:text-red-400;
+  margin-top: 0.25rem;
+  font-size: 0.75rem;
+  color: var(--error);
 }
 

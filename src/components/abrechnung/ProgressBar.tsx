@@ -10,7 +10,7 @@ export function ProgressBar({ currentStep, totalSteps, labels }: Props) {
   return (
     <div className="w-full mb-8">
       {/* Mobile: Step X von Y */}
-      <p className="text-sm text-zinc-500 dark:text-zinc-400 mb-3 sm:hidden">
+      <p className="text-sm text-[var(--on-surface-variant)] mb-3 sm:hidden">
         Schritt {currentStep} von {totalSteps}
       </p>
 
@@ -27,10 +27,10 @@ export function ProgressBar({ currentStep, totalSteps, labels }: Props) {
                 <div
                   className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold transition-colors ${
                     isDone
-                      ? 'bg-[var(--primary)] text-white'
+                      ? 'bg-[var(--primary)] text-[var(--on-primary)]'
                       : isActive
-                      ? 'bg-[var(--primary)] text-white ring-4 ring-[var(--primary)]/20'
-                      : 'bg-zinc-200 dark:bg-zinc-700 text-zinc-500 dark:text-zinc-400'
+                      ? 'bg-[var(--primary)] text-[var(--on-primary)] ring-4 ring-[var(--primary)]/20'
+                      : 'bg-[var(--surface-container-high)] text-[var(--on-surface-variant)]'
                   }`}
                 >
                   {isDone ? (
@@ -46,8 +46,8 @@ export function ProgressBar({ currentStep, totalSteps, labels }: Props) {
                     isActive
                       ? 'text-[var(--primary)]'
                       : isDone
-                      ? 'text-zinc-600 dark:text-zinc-400'
-                      : 'text-zinc-400 dark:text-zinc-500'
+                      ? 'text-[var(--on-surface-variant)]'
+                      : 'text-[var(--on-surface-variant)] opacity-50'
                   }`}
                 >
                   {label}
@@ -57,7 +57,7 @@ export function ProgressBar({ currentStep, totalSteps, labels }: Props) {
               {i < totalSteps - 1 && (
                 <div
                   className={`h-0.5 flex-1 mx-2 mt-[-12px] transition-colors ${
-                    isDone ? 'bg-[var(--primary)]' : 'bg-zinc-200 dark:bg-zinc-700'
+                    isDone ? 'bg-[var(--primary)]' : 'bg-[var(--outline-variant)]'
                   }`}
                 />
               )}

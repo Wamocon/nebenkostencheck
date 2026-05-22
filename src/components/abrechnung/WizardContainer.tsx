@@ -159,14 +159,14 @@ export function WizardContainer({ locale, kategorien }: Props) {
     return (
       <div className="mx-auto max-w-2xl">
         <div className="mb-8">
-          <h1 className="text-2xl font-bold text-zinc-900 dark:text-zinc-50 mb-1">
+          <h1 className="text-2xl font-bold text-[var(--on-surface)] mb-1">
             {t('wizard.title_new')}
           </h1>
-          <p className="text-sm text-zinc-500">{tPdf('subtitle')}</p>
+          <p className="text-sm text-[var(--on-surface-variant)]">{tPdf('subtitle')}</p>
         </div>
 
-        <div className="bg-white dark:bg-zinc-900 rounded-2xl border border-[var(--border)] p-6 shadow-sm">
-          <h2 className="text-lg font-semibold text-zinc-900 dark:text-zinc-50 mb-5 flex items-center gap-2">
+        <div className="elevation-1 rounded-2xl p-6">
+          <h2 className="text-lg font-semibold text-[var(--on-surface)] mb-5 flex items-center gap-2">
             <svg className="w-5 h-5 text-[var(--primary)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
             </svg>
@@ -185,18 +185,18 @@ export function WizardContainer({ locale, kategorien }: Props) {
     <div className="mx-auto max-w-2xl">
       {/* Header */}
       <div className="mb-8">
-        <h1 className="text-2xl font-bold text-zinc-900 dark:text-zinc-50 mb-1">
+        <h1 className="text-2xl font-bold text-[var(--on-surface)] mb-1">
           {t('wizard.title_new')}
         </h1>
-        <p className="text-sm text-zinc-500">{t('wizard.step_of', { current: currentStep, total: 4 })}</p>
+        <p className="text-sm text-[var(--on-surface-variant)]">{t('wizard.step_of', { current: currentStep, total: 4 })}</p>
       </div>
 
       {/* Progress */}
       <ProgressBar currentStep={currentStep} totalSteps={4} labels={stepLabels} />
 
       {/* Step Content */}
-      <div className="bg-white dark:bg-zinc-900 rounded-2xl border border-[var(--border)] p-6 shadow-sm">
-        <h2 className="text-lg font-semibold text-zinc-900 dark:text-zinc-50 mb-5">
+      <div className="elevation-1 rounded-2xl p-6">
+        <h2 className="text-lg font-semibold text-[var(--on-surface)] mb-5">
           {stepLabels[currentStep - 1]}
         </h2>
 

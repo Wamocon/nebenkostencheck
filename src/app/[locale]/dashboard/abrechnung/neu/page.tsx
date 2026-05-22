@@ -21,7 +21,7 @@ export default async function NeuAbrechnungPage({ params }: Props) {
     .order('sort_order');
 
   return (
-    <div className="min-h-screen bg-[var(--muted)] dark:bg-zinc-950 py-8 px-4">
+    <div className="min-h-screen bg-[var(--surface)] py-8 px-4">
       <WizardContainer
         locale={locale}
         kategorien={(kategorien ?? []) as BetrkvCategory[]}

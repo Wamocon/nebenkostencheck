@@ -127,11 +127,11 @@ export function PdfUpload({ onParsed, onSkip }: Props) {
   return (
     <div className="space-y-5">
       {/* Hint */}
-      <div className="rounded-xl bg-blue-50 dark:bg-blue-950 border border-blue-200 dark:border-blue-800 p-3 flex gap-2.5">
-        <svg className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <div className="rounded-xl bg-[var(--secondary-container)]/30 border border-[var(--secondary)]/30 p-3 flex gap-2.5">
+        <svg className="w-4 h-4 text-[var(--secondary)] flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
-        <p className="text-xs text-blue-700 dark:text-blue-300">{t('hint')}</p>
+        <p className="text-xs text-[var(--on-surface-variant)]">{t('hint')}</p>
       </div>
 
       {/* Drop Zone */}
@@ -144,8 +144,8 @@ export function PdfUpload({ onParsed, onSkip }: Props) {
         disabled={isLoading}
         className={`w-full rounded-2xl border-2 border-dashed p-10 text-center transition-colors cursor-pointer ${
           isDragging
-            ? 'border-[var(--primary)] bg-[var(--accent)] dark:bg-green-950'
-            : 'border-[var(--border)] hover:border-[var(--primary)] hover:bg-[var(--accent)] dark:hover:bg-zinc-900'
+            ? 'border-[var(--primary)] bg-[var(--primary)]/10'
+            : 'border-[var(--outline-variant)] hover:border-[var(--primary)] hover:bg-[var(--primary)]/5'
         } disabled:opacity-50 disabled:cursor-not-allowed`}
       >
         {isLoading ? (
@@ -154,18 +154,18 @@ export function PdfUpload({ onParsed, onSkip }: Props) {
               <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
               <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
             </svg>
-            <p className="text-sm font-medium text-zinc-600 dark:text-zinc-300">{t('uploading')}</p>
+            <p className="text-sm font-medium text-[var(--on-surface-variant)]">{t('uploading')}</p>
           </div>
         ) : (
           <div className="flex flex-col items-center gap-3">
-            <div className="w-12 h-12 rounded-full bg-[var(--accent)] dark:bg-zinc-800 flex items-center justify-center">
+            <div className="w-12 h-12 rounded-full bg-[var(--primary)]/15 flex items-center justify-center">
               <svg className="w-6 h-6 text-[var(--primary)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
               </svg>
             </div>
             <div>
-              <p className="text-sm font-medium text-zinc-700 dark:text-zinc-200">{t('drag_drop')}</p>
-              <p className="text-xs text-zinc-400 mt-1">{t('accepted')}</p>
+              <p className="text-sm font-medium text-[var(--on-surface)]">{t('drag_drop')}</p>
+              <p className="text-xs text-[var(--on-surface-variant)] mt-1">{t('accepted')}</p>
             </div>
           </div>
         )}

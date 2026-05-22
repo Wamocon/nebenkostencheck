@@ -49,7 +49,7 @@ export function Step1Grunddaten({ initialData, onNext, isLoading }: Props) {
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         {/* Abrechnungsjahr */}
         <div>
-          <label className="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-1">
+          <label className="block text-sm font-medium text-[var(--on-surface)] mb-1">
             {t('fields.jahr')} *
           </label>
           <input
@@ -64,18 +64,18 @@ export function Step1Grunddaten({ initialData, onNext, isLoading }: Props) {
 
         {/* Zugangsdatum */}
         <div>
-          <label className="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-1">
+          <label className="block text-sm font-medium text-[var(--on-surface)] mb-1">
             {t('fields.zugangsdatum')} *
           </label>
           <input type="date" {...register('zugangsdatum')} className="field-input" />
-          <p className="mt-1 text-xs text-zinc-400">{t('fields.zugangsdatum_hint')}</p>
+          <p className="mt-1 text-xs text-[var(--on-surface-variant)]">{t('fields.zugangsdatum_hint')}</p>
           {errors.zugangsdatum && <p className="field-error">{tVal('required')}</p>}
         </div>
       </div>
 
       {/* Vermieter Name */}
       <div>
-        <label className="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-1">
+        <label className="block text-sm font-medium text-[var(--on-surface)] mb-1">
           {t('fields.vermieter_name')} *
         </label>
         <input type="text" {...register('vermieter_name')} className="field-input" />
@@ -84,7 +84,7 @@ export function Step1Grunddaten({ initialData, onNext, isLoading }: Props) {
 
       {/* Vermieter Adresse */}
       <div>
-        <label className="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-1">
+        <label className="block text-sm font-medium text-[var(--on-surface)] mb-1">
           {t('fields.vermieter_adresse')}
         </label>
         <textarea
@@ -98,7 +98,7 @@ export function Step1Grunddaten({ initialData, onNext, isLoading }: Props) {
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
         {/* Wohnfläche */}
         <div>
-          <label className="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-1">
+          <label className="block text-sm font-medium text-[var(--on-surface)] mb-1">
             {t('fields.wohnflaeche')} *
           </label>
           <div className="relative">
@@ -108,14 +108,14 @@ export function Step1Grunddaten({ initialData, onNext, isLoading }: Props) {
               {...register('wohnflaeche_qm')}
               className="field-input pr-10"
             />
-            <span className="absolute right-3 top-1/2 -translate-y-1/2 text-sm text-zinc-400">m²</span>
+            <span className="absolute right-3 top-1/2 -translate-y-1/2 text-sm text-[var(--on-surface-variant)]">m²</span>
           </div>
           {errors.wohnflaeche_qm && <p className="field-error">{tVal('positive_number')}</p>}
         </div>
 
         {/* Vorauszahlung */}
         <div>
-          <label className="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-1">
+          <label className="block text-sm font-medium text-[var(--on-surface)] mb-1">
             {t('fields.vorauszahlung')}
           </label>
           <div className="relative">
@@ -126,13 +126,13 @@ export function Step1Grunddaten({ initialData, onNext, isLoading }: Props) {
               className="field-input pr-8"
               placeholder="0,00"
             />
-            <span className="absolute right-3 top-1/2 -translate-y-1/2 text-sm text-zinc-400">€</span>
+            <span className="absolute right-3 top-1/2 -translate-y-1/2 text-sm text-[var(--on-surface-variant)]">€</span>
           </div>
         </div>
 
         {/* Saldo */}
         <div>
-          <label className="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-1">
+          <label className="block text-sm font-medium text-[var(--on-surface)] mb-1">
             {t('fields.saldo')}
           </label>
           <div className="relative">
@@ -143,9 +143,9 @@ export function Step1Grunddaten({ initialData, onNext, isLoading }: Props) {
               className="field-input pr-8"
               placeholder="0,00"
             />
-            <span className="absolute right-3 top-1/2 -translate-y-1/2 text-sm text-zinc-400">€</span>
+            <span className="absolute right-3 top-1/2 -translate-y-1/2 text-sm text-[var(--on-surface-variant)]">€</span>
           </div>
-          <p className="mt-1 text-xs text-zinc-400">{t('fields.saldo_hint')}</p>
+          <p className="mt-1 text-xs text-[var(--on-surface-variant)]">{t('fields.saldo_hint')}</p>
         </div>
       </div>
 
@@ -153,7 +153,7 @@ export function Step1Grunddaten({ initialData, onNext, isLoading }: Props) {
         <button
           type="submit"
           disabled={isLoading}
-          className="rounded-lg bg-[var(--primary)] px-6 py-2.5 text-sm font-semibold text-white hover:bg-[var(--primary-dark)] disabled:opacity-50 transition-colors"
+          className="rounded-lg bg-[var(--primary)] px-6 py-2.5 text-sm font-semibold text-[var(--on-primary)] hover:opacity-90 disabled:opacity-50 transition-opacity"
         >
           {isLoading ? '...' : t('wizard.next')} →
         </button>
