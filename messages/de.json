@@ -1,0 +1,196 @@
+{
+  "meta": {
+    "title": "NebenkostenCheck - Nebenkostenabrechnung prüfen",
+    "description": "Prüfe deine Nebenkostenabrechnung schnell und einfach. Kostenlos mit BetrKV-Abgleich, HKVO-Prüfung und Widerspruchsschreiben."
+  },
+  "nav": {
+    "home": "Startseite",
+    "dashboard": "Dashboard",
+    "archiv": "Archiv",
+    "profil": "Profil",
+    "admin": "Admin",
+    "faq": "FAQ & Hilfe",
+    "login": "Anmelden",
+    "register": "Registrieren",
+    "logout": "Abmelden",
+    "upgrade": "Upgrade auf Pro"
+  },
+  "home": {
+    "hero": {
+      "headline": "Deine Nebenkostenabrechnung auf dem Prüfstand",
+      "subline": "NebenkostenCheck führt dich Schritt für Schritt durch die Prüfung deiner Abrechnung - nach §556 BGB, BetrKV und HKVO. Ohne Mieterbund. Ohne Anwalt.",
+      "cta_primary": "Abrechnung kostenlos prüfen",
+      "cta_secondary": "Mehr erfahren",
+      "disclaimer": "NebenkostenCheck erbringt keine Rechtsberatung im Sinne des §2 RDG und ersetzt keinen Rechtsanwalt."
+    },
+    "features": {
+      "title": "Was prüft NebenkostenCheck?",
+      "betrkv": {
+        "title": "BetrKV-Abgleich",
+        "desc": "Jede Position wird gegen die abschließende Liste der Betriebskostenverordnung geprüft."
+      },
+      "hkvo": {
+        "title": "HKVO-Validierung",
+        "desc": "Der verbrauchsabhängige Heizkostenanteil wird gemäß §7 HKVO auf 50-70% geprüft."
+      },
+      "frist": {
+        "title": "Fristenüberwachung",
+        "desc": "Die 12-Monats-Einwendungsfrist nach §556 Abs. 3 BGB wird automatisch berechnet und überwacht."
+      },
+      "schreiben": {
+        "title": "Widerspruchsschreiben",
+        "desc": "Bei Auffälligkeiten erstellt das System einen vorformulierten Mustertext mit Gesetzesreferenzen."
+      }
+    },
+    "tariff": {
+      "title": "Kostenlos starten, bei Bedarf upgraden",
+      "free": {
+        "name": "Free",
+        "price": "Kostenlos",
+        "feature1": "Ampeldarstellung des Ergebnisses",
+        "feature2": "Anzahl der Auffälligkeiten",
+        "feature3": "Fristberechnung",
+        "cta": "Kostenlos starten"
+      },
+      "pro": {
+        "name": "Pro",
+        "price": "9 € pro Abrechnung",
+        "price_sub": "oder Jahresabo",
+        "feature1": "Detailbefund pro Position",
+        "feature2": "Widerspruchsschreiben (PDF)",
+        "feature3": "Prüfbericht als PDF",
+        "feature4": "Dauerhaftes Archiv",
+        "cta": "Jetzt upgraden"
+      }
+    },
+    "rdg_notice": "Rechtlicher Hinweis: NebenkostenCheck ist ein Informations- und Automatisierungstool. Die App stellt auf Basis Ihrer Eingaben die abstrakte Rechtslage schematisch dar. Sie erbringt keine Bewertung Ihres konkreten Einzelfalls und keine Rechtsdienstleistung im Sinne des §2 RDG."
+  },
+  "auth": {
+    "login": {
+      "title": "Anmelden",
+      "email": "E-Mail-Adresse",
+      "password": "Passwort",
+      "submit": "Anmelden",
+      "forgot_password": "Passwort vergessen?",
+      "no_account": "Noch kein Konto?",
+      "register_link": "Jetzt registrieren",
+      "error_invalid": "E-Mail oder Passwort falsch.",
+      "error_generic": "Anmeldung fehlgeschlagen. Bitte versuche es erneut."
+    },
+    "register": {
+      "title": "Konto erstellen",
+      "name": "Vollständiger Name",
+      "email": "E-Mail-Adresse",
+      "password": "Passwort",
+      "password_hint": "Mindestens 8 Zeichen",
+      "submit": "Registrieren",
+      "already_account": "Bereits ein Konto?",
+      "login_link": "Jetzt anmelden",
+      "success_title": "Bestätigungslink gesendet",
+      "success_message": "Bitte prüfe deine E-Mails und bestätige deine Adresse.",
+      "error_email_taken": "Diese E-Mail-Adresse ist bereits registriert.",
+      "error_generic": "Registrierung fehlgeschlagen. Bitte versuche es erneut."
+    },
+    "reset": {
+      "title": "Passwort zurücksetzen",
+      "email": "E-Mail-Adresse",
+      "submit": "Link senden",
+      "back_to_login": "Zurück zur Anmeldung",
+      "success_title": "Link gesendet",
+      "success_message": "Prüfe deine E-Mails für den Passwort-Reset-Link."
+    }
+  },
+  "dashboard": {
+    "title": "Meine Abrechnungen",
+    "empty_title": "Noch keine Abrechnungen",
+    "empty_desc": "Füge deine erste Nebenkostenabrechnung hinzu und prüfe sie kostenlos.",
+    "add_button": "Neue Abrechnung hinzufügen",
+    "status": {
+      "in_pruefung": "In Prüfung",
+      "geprueft": "Geprüft",
+      "widerspruch_erstellt": "Widerspruch erstellt",
+      "frist_abgelaufen": "Frist abgelaufen"
+    },
+    "frist_label": "Einwendungsfrist",
+    "frist_days": "{days} Tage verbleibend",
+    "frist_expired": "Frist abgelaufen",
+    "frist_today": "Heute läuft die Frist ab!"
+  },
+  "abrechnung": {
+    "wizard": {
+      "step1": "Grunddaten",
+      "step2": "Betriebskosten",
+      "step3": "Heizkosten",
+      "step4": "Zusammenfassung",
+      "next": "Weiter",
+      "back": "Zurück",
+      "save_draft": "Zwischenspeichern",
+      "start_check": "Prüfung starten"
+    },
+    "fields": {
+      "jahr": "Abrechnungsjahr",
+      "zugangsdatum": "Zugangsdatum der Abrechnung",
+      "zugangsdatum_hint": "Das Datum, an dem die Abrechnung bei dir eingegangen ist (relevant für §556 Abs. 3 BGB).",
+      "vermieter_name": "Name des Vermieters / der Hausverwaltung",
+      "vermieter_adresse": "Adresse des Vermieters / der Hausverwaltung",
+      "wohnflaeche": "Deine Wohnfläche (m²)",
+      "vorauszahlung": "Monatliche Vorauszahlung (€)",
+      "saldo": "Abgerechneter Saldo (€)",
+      "saldo_hint": "Positiver Wert = Nachzahlung, negativer Wert = Guthaben."
+    },
+    "positionen": {
+      "add": "Position hinzufügen",
+      "remove": "Entfernen",
+      "kategorie": "Kostenart (BetrKV)",
+      "freitext": "Bezeichnung (falls nicht in Liste)",
+      "gesamtbetrag": "Gesamtbetrag der Liegenschaft (€)",
+      "umlageschluessel": "Umlageschlüssel",
+      "mieter_anteil": "Dein Anteil (€)"
+    },
+    "heizkosten": {
+      "title": "Heizkostenabrechnung",
+      "hint": "Die Heizkostenverordnung (HKVO) schreibt vor, dass mindestens 50% und höchstens 70% der Heizkosten verbrauchsabhängig abgerechnet werden müssen (§7 HKVO).",
+      "gesamtkosten": "Gesamtheizkosten (€)",
+      "verbrauchsanteil": "Verbrauchsabhängiger Anteil (%)",
+      "grundkostenanteil": "Grundkostenanteil (%)"
+    }
+  },
+  "ergebnis": {
+    "title": "Prüfergebnis",
+    "ampel_gruen": "Keine Auffälligkeiten",
+    "ampel_gelb": "Prüfungswürdige Positionen",
+    "ampel_rot": "Nicht zulässige Positionen gefunden",
+    "summary_beanstandet": "Potenziell zurückforderbar:",
+    "frist_label": "Einwendungsfrist",
+    "upgrade_cta": "Pro freischalten - Detailbefund & Widerspruchsschreiben ansehen",
+    "rdg_disclaimer": "Hinweis: NebenkostenCheck erbringt keine Rechtsberatung im Sinne des §2 RDG und ersetzt keinen Rechtsanwalt. Das Prüfergebnis basiert ausschließlich auf Ihren Eingaben. Für Ihren konkreten Einzelfall empfehlen wir die Beratung durch einen qualifizierten Rechtsanwalt.",
+    "status": {
+      "zulaessig": "Zulässig",
+      "nicht_zulaessig": "Nicht zulässig",
+      "pruefungswuerdig": "Prüfungswürdig"
+    },
+    "download_pdf": "Prüfbericht als PDF (Pro)",
+    "create_schreiben": "Widerspruchsschreiben erstellen (Pro)"
+  },
+  "legal": {
+    "agb": "Allgemeine Geschäftsbedingungen",
+    "impressum": "Impressum",
+    "datenschutz": "Datenschutzerklärung"
+  },
+  "cookie": {
+    "message": "Wir verwenden Cookies, um die Nutzung der Website zu ermöglichen und zu verbessern. Durch die weitere Nutzung stimmen Sie der Verwendung zu.",
+    "accept": "Akzeptieren",
+    "decline": "Ablehnen",
+    "settings": "Einstellungen"
+  },
+  "theme": {
+    "light": "Helles Design",
+    "dark": "Dunkles Design",
+    "system": "Systemeinstellung"
+  },
+  "errors": {
+    "not_found": "Seite nicht gefunden",
+    "unauthorized": "Bitte anmelden",
+    "generic": "Ein Fehler ist aufgetreten. Bitte versuche es erneut."
+  }
+}
