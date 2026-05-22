@@ -1,0 +1,196 @@
+{
+  "meta": {
+    "title": "NebenkostenCheck - Check Your Utility Bill",
+    "description": "Check your German utility bill quickly and easily. Free with BetrKV check, HKVO validation and dispute letter generator."
+  },
+  "nav": {
+    "home": "Home",
+    "dashboard": "Dashboard",
+    "archiv": "Archive",
+    "profil": "Profile",
+    "admin": "Admin",
+    "faq": "FAQ & Help",
+    "login": "Sign In",
+    "register": "Sign Up",
+    "logout": "Sign Out",
+    "upgrade": "Upgrade to Pro"
+  },
+  "home": {
+    "hero": {
+      "headline": "Put Your Utility Bill to the Test",
+      "subline": "NebenkostenCheck guides you step by step through checking your utility bill - according to §556 BGB, BetrKV and HKVO. No tenants' association. No lawyer.",
+      "cta_primary": "Check your bill for free",
+      "cta_secondary": "Learn more",
+      "disclaimer": "NebenkostenCheck does not provide legal advice within the meaning of §2 RDG and does not replace a lawyer."
+    },
+    "features": {
+      "title": "What does NebenkostenCheck verify?",
+      "betrkv": {
+        "title": "BetrKV Check",
+        "desc": "Every line item is checked against the exhaustive list of the German Operating Costs Ordinance."
+      },
+      "hkvo": {
+        "title": "HKVO Validation",
+        "desc": "The consumption-based heating cost share is checked against the 50-70% requirement of §7 HKVO."
+      },
+      "frist": {
+        "title": "Deadline Monitoring",
+        "desc": "The 12-month objection deadline under §556 para. 3 BGB is automatically calculated and monitored."
+      },
+      "schreiben": {
+        "title": "Dispute Letter",
+        "desc": "When irregularities are found, the system generates a pre-written template letter with legal references."
+      }
+    },
+    "tariff": {
+      "title": "Start free, upgrade when needed",
+      "free": {
+        "name": "Free",
+        "price": "Free",
+        "feature1": "Traffic light result overview",
+        "feature2": "Number of irregularities",
+        "feature3": "Deadline calculation",
+        "cta": "Start for free"
+      },
+      "pro": {
+        "name": "Pro",
+        "price": "€9 per bill",
+        "price_sub": "or annual subscription",
+        "feature1": "Detailed result per line item",
+        "feature2": "Dispute letter (PDF)",
+        "feature3": "Full report as PDF",
+        "feature4": "Permanent archive",
+        "cta": "Upgrade now"
+      }
+    },
+    "rdg_notice": "Legal notice: NebenkostenCheck is an information and automation tool. The app schematically presents the abstract legal situation based on your inputs. It does not evaluate your specific individual case and does not constitute a legal service within the meaning of §2 RDG."
+  },
+  "auth": {
+    "login": {
+      "title": "Sign In",
+      "email": "Email address",
+      "password": "Password",
+      "submit": "Sign In",
+      "forgot_password": "Forgot password?",
+      "no_account": "No account yet?",
+      "register_link": "Sign up now",
+      "error_invalid": "Invalid email or password.",
+      "error_generic": "Sign in failed. Please try again."
+    },
+    "register": {
+      "title": "Create Account",
+      "name": "Full name",
+      "email": "Email address",
+      "password": "Password",
+      "password_hint": "At least 8 characters",
+      "submit": "Sign Up",
+      "already_account": "Already have an account?",
+      "login_link": "Sign in now",
+      "success_title": "Confirmation link sent",
+      "success_message": "Please check your email and confirm your address.",
+      "error_email_taken": "This email address is already registered.",
+      "error_generic": "Registration failed. Please try again."
+    },
+    "reset": {
+      "title": "Reset Password",
+      "email": "Email address",
+      "submit": "Send Link",
+      "back_to_login": "Back to sign in",
+      "success_title": "Link sent",
+      "success_message": "Check your email for the password reset link."
+    }
+  },
+  "dashboard": {
+    "title": "My Bills",
+    "empty_title": "No bills yet",
+    "empty_desc": "Add your first utility bill and check it for free.",
+    "add_button": "Add new bill",
+    "status": {
+      "in_pruefung": "Under Review",
+      "geprueft": "Reviewed",
+      "widerspruch_erstellt": "Dispute Created",
+      "frist_abgelaufen": "Deadline Expired"
+    },
+    "frist_label": "Objection deadline",
+    "frist_days": "{days} days remaining",
+    "frist_expired": "Deadline expired",
+    "frist_today": "Deadline expires today!"
+  },
+  "abrechnung": {
+    "wizard": {
+      "step1": "Basic Info",
+      "step2": "Operating Costs",
+      "step3": "Heating Costs",
+      "step4": "Summary",
+      "next": "Next",
+      "back": "Back",
+      "save_draft": "Save Draft",
+      "start_check": "Start Check"
+    },
+    "fields": {
+      "jahr": "Billing year",
+      "zugangsdatum": "Date of receipt",
+      "zugangsdatum_hint": "The date you received the bill (relevant for §556 para. 3 BGB).",
+      "vermieter_name": "Landlord / property management name",
+      "vermieter_adresse": "Landlord / property management address",
+      "wohnflaeche": "Your apartment size (m²)",
+      "vorauszahlung": "Monthly advance payment (€)",
+      "saldo": "Billed balance (€)",
+      "saldo_hint": "Positive = additional payment, negative = credit."
+    },
+    "positionen": {
+      "add": "Add line item",
+      "remove": "Remove",
+      "kategorie": "Cost type (BetrKV)",
+      "freitext": "Label (if not in list)",
+      "gesamtbetrag": "Total for the property (€)",
+      "umlageschluessel": "Distribution key",
+      "mieter_anteil": "Your share (€)"
+    },
+    "heizkosten": {
+      "title": "Heating Cost Statement",
+      "hint": "The Heating Cost Ordinance (HKVO) requires that at least 50% and at most 70% of heating costs are charged based on consumption (§7 HKVO).",
+      "gesamtkosten": "Total heating costs (€)",
+      "verbrauchsanteil": "Consumption-based share (%)",
+      "grundkostenanteil": "Fixed cost share (%)"
+    }
+  },
+  "ergebnis": {
+    "title": "Check Result",
+    "ampel_gruen": "No irregularities found",
+    "ampel_gelb": "Items worth reviewing",
+    "ampel_rot": "Non-permissible items found",
+    "summary_beanstandet": "Potentially recoverable:",
+    "frist_label": "Objection deadline",
+    "upgrade_cta": "Unlock Pro - view detailed results & dispute letter",
+    "rdg_disclaimer": "Notice: NebenkostenCheck does not provide legal advice within the meaning of §2 RDG and does not replace a lawyer. The check result is based solely on your inputs. For your specific case, we recommend consulting a qualified lawyer.",
+    "status": {
+      "zulaessig": "Permissible",
+      "nicht_zulaessig": "Not permissible",
+      "pruefungswuerdig": "Worth reviewing"
+    },
+    "download_pdf": "Download report as PDF (Pro)",
+    "create_schreiben": "Create dispute letter (Pro)"
+  },
+  "legal": {
+    "agb": "Terms and Conditions",
+    "impressum": "Legal Notice",
+    "datenschutz": "Privacy Policy"
+  },
+  "cookie": {
+    "message": "We use cookies to enable and improve the use of this website. By continuing to use this site, you agree to their use.",
+    "accept": "Accept",
+    "decline": "Decline",
+    "settings": "Settings"
+  },
+  "theme": {
+    "light": "Light mode",
+    "dark": "Dark mode",
+    "system": "System preference"
+  },
+  "errors": {
+    "not_found": "Page not found",
+    "unauthorized": "Please sign in",
+    "generic": "An error occurred. Please try again."
+  }
+}
