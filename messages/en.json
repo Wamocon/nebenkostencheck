@@ -114,7 +114,13 @@
     "frist_label": "Objection deadline",
     "frist_days": "{days} days remaining",
     "frist_expired": "Deadline expired",
-    "frist_today": "Deadline expires today!"
+    "frist_today": "Deadline expires today!",
+    "status_entwurf": "Draft",
+    "status_eingereicht": "Submitted",
+    "status_geprueft": "Reviewed",
+    "abrechnung_year": "Bill {year}",
+    "view_result": "View result",
+    "continue": "Continue"
   },
   "abrechnung": {
     "wizard": {
@@ -125,7 +131,25 @@
       "next": "Next",
       "back": "Back",
       "save_draft": "Save Draft",
-      "start_check": "Start Check"
+      "start_check": "Start Check",
+      "checking": "Running check...",
+      "title_new": "Check new bill",
+      "step_of": "Step {current} of {total}"
+    },
+    "validation": {
+      "required": "Required",
+      "min_1": "At least one line item required",
+      "invalid_number": "Invalid number",
+      "positive_number": "Must be greater than 0",
+      "verbrauch_sum": "Consumption share + fixed cost share must equal 100%",
+      "verbrauch_range": "Consumption share must be between 0 and 100"
+    },
+    "umlageschluessel_options": {
+      "wohnflaeche": "By floor area",
+      "wohneinheiten": "By number of units",
+      "verbrauch": "By consumption",
+      "personen": "By number of persons",
+      "sonstige": "Other key"
     },
     "fields": {
       "jahr": "Billing year",

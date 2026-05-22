@@ -47,3 +47,15 @@ body {
   font-family: var(--font-sans, Arial, Helvetica, sans-serif);
 }
 
+/* Gemeinsame Formular-Klassen */
+.field-input {
+  @apply w-full rounded-lg border border-[var(--border)] bg-white dark:bg-zinc-800
+    px-3 py-2.5 text-sm text-zinc-900 dark:text-zinc-50 placeholder-zinc-400
+    focus:outline-none focus:ring-2 focus:ring-[var(--primary)] focus:border-transparent
+    transition-colors;
+}
+
+.field-error {
+  @apply mt-1 text-xs text-red-600 dark:text-red-400;
+}
+

@@ -114,7 +114,13 @@
     "frist_label": "Einwendungsfrist",
     "frist_days": "{days} Tage verbleibend",
     "frist_expired": "Frist abgelaufen",
-    "frist_today": "Heute läuft die Frist ab!"
+    "frist_today": "Heute läuft die Frist ab!",
+    "status_entwurf": "Entwurf",
+    "status_eingereicht": "Eingereicht",
+    "status_geprueft": "Geprüft",
+    "abrechnung_year": "Abrechnung {year}",
+    "view_result": "Ergebnis ansehen",
+    "continue": "Fortsetzen"
   },
   "abrechnung": {
     "wizard": {
@@ -125,7 +131,25 @@
       "next": "Weiter",
       "back": "Zurück",
       "save_draft": "Zwischenspeichern",
-      "start_check": "Prüfung starten"
+      "start_check": "Prüfung starten",
+      "checking": "Prüfung läuft...",
+      "title_new": "Neue Abrechnung prüfen",
+      "step_of": "Schritt {current} von {total}"
+    },
+    "validation": {
+      "required": "Pflichtfeld",
+      "min_1": "Mindestens eine Position erforderlich",
+      "invalid_number": "Ungültige Zahl",
+      "positive_number": "Muss größer als 0 sein",
+      "verbrauch_sum": "Verbrauchsanteil + Grundkostenanteil muss 100% ergeben",
+      "verbrauch_range": "Verbrauchsanteil muss zwischen 0 und 100 liegen"
+    },
+    "umlageschluessel_options": {
+      "wohnflaeche": "Nach Wohnfläche",
+      "wohneinheiten": "Nach Wohneinheiten",
+      "verbrauch": "Nach Verbrauch",
+      "personen": "Nach Personenzahl",
+      "sonstige": "Sonstiger Schlüssel"
     },
     "fields": {
       "jahr": "Abrechnungsjahr",
