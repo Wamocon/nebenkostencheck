@@ -210,6 +210,10 @@
 }
 
 /* --- Base Styles --- */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: var(--background);
   color: var(--foreground);
@@ -287,6 +291,17 @@ body {
   animation: glow-pulse 2.5s ease-in-out infinite;
 }
 
+/* Respect reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .highlight-pulse {
+    animation: none;
+  }
+  * {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
 /* --- Data / Mono Values (JetBrains Mono for currency + technical data) --- */
 .data-value {
   font-family: var(--font-mono, 'JetBrains Mono', monospace);
@@ -331,5 +346,49 @@ body {
   margin-top: 0.25rem;
   font-size: 0.75rem;
   color: var(--error);
+}
+
+/* --- Entrance Animations (scroll-triggered via CSS) --- */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.5s ease-out both;
+}
+
+/* Staggered delays for child elements */
+.stagger-1 { animation-delay: 0ms; }
+.stagger-2 { animation-delay: 80ms; }
+.stagger-3 { animation-delay: 160ms; }
+.stagger-4 { animation-delay: 240ms; }
+
+/* Intersection Observer driven: hidden until visible */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .animate-fade-in-up {
+    opacity: 1;
+    transform: none;
+    animation: none;
+    transition: none;
+  }
 }
 

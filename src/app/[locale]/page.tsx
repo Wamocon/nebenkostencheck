@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { getTranslations } from 'next-intl/server';
+import { RevealOnScroll } from '@/components/ui/RevealOnScroll';
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -15,19 +16,19 @@ export default async function HomePage({ params }: Props) {
       <section className="bg-[var(--surface)] pt-20 pb-24 px-4 relative overflow-hidden">
         <div className="mx-auto max-w-4xl text-center">
           {/* Badge */}
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-[var(--primary)]/10 px-3 py-1 text-xs font-medium text-[var(--primary)] ring-1 ring-[var(--primary)]/20 mb-6">
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-[var(--primary)]/10 px-3 py-1 text-xs font-medium text-[var(--primary)] ring-1 ring-[var(--primary)]/20 mb-6 animate-fade-in-up stagger-1">
             <span className="w-1.5 h-1.5 bg-[var(--primary)] rounded-full" />
             {locale === 'de' ? 'Kostenlos starten' : 'Start for free'}
           </span>
 
-          <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-[var(--on-surface)] mb-6 leading-tight">
+          <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-[var(--on-surface)] mb-6 leading-tight animate-fade-in-up stagger-2">
             {t('hero.headline')}
           </h1>
-          <p className="text-lg text-[var(--on-surface-variant)] max-w-2xl mx-auto mb-8 leading-relaxed">
+          <p className="text-lg text-[var(--on-surface-variant)] max-w-2xl mx-auto mb-8 leading-relaxed animate-fade-in-up stagger-3">
             {t('hero.subline')}
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-3 justify-center mb-8">
+          <div className="flex flex-col sm:flex-row gap-3 justify-center mb-8 animate-fade-in-up stagger-4">
             <Link
               href={`/${locale}/auth/register`}
               className="inline-flex items-center justify-center rounded-xl bg-[var(--primary)] px-6 py-3 text-base font-semibold text-white shadow-sm hover:bg-[var(--primary-dark)] transition-colors"
@@ -58,6 +59,7 @@ export default async function HomePage({ params }: Props) {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {/* BetrKV */}
+            <RevealOnScroll delay={0}>
             <FeatureCard
               icon={
                 <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -68,7 +70,9 @@ export default async function HomePage({ params }: Props) {
               title={t('features.betrkv.title')}
               desc={t('features.betrkv.desc')}
             />
+            </RevealOnScroll>
             {/* HKVO */}
+            <RevealOnScroll delay={80}>
             <FeatureCard
               icon={
                 <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -79,7 +83,9 @@ export default async function HomePage({ params }: Props) {
               title={t('features.hkvo.title')}
               desc={t('features.hkvo.desc')}
             />
+            </RevealOnScroll>
             {/* Frist */}
+            <RevealOnScroll delay={160}>
             <FeatureCard
               icon={
                 <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -90,7 +96,9 @@ export default async function HomePage({ params }: Props) {
               title={t('features.frist.title')}
               desc={t('features.frist.desc')}
             />
+            </RevealOnScroll>
             {/* Schreiben */}
+            <RevealOnScroll delay={240}>
             <FeatureCard
               icon={
                 <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -101,6 +109,7 @@ export default async function HomePage({ params }: Props) {
               title={t('features.schreiben.title')}
               desc={t('features.schreiben.desc')}
             />
+            </RevealOnScroll>
           </div>
         </div>
       </section>

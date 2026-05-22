@@ -35,7 +35,7 @@ export function LanguageSwitcher({ currentLocale }: Props) {
           key={locale}
           onClick={() => switchLocale(locale)}
           disabled={isPending || locale === currentLocale}
-          className={`rounded px-2 py-1 text-xs font-medium transition-colors ${
+          className={`rounded px-2.5 py-1.5 text-xs font-medium min-w-[36px] min-h-[36px] flex items-center justify-center transition-colors ${
             locale === currentLocale
               ? 'bg-[var(--primary)] text-[var(--on-primary)]'
               : 'text-[var(--on-surface-variant)] hover:text-[var(--on-surface)]'

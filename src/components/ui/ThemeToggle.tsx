@@ -21,7 +21,7 @@ export function ThemeToggle() {
   return (
     <button
       onClick={() => setTheme(isDark ? 'light' : 'dark')}
-      className="rounded-lg p-2 text-[var(--on-surface-variant)] hover:bg-[var(--surface-container-high)]/50 transition-colors"
+      className="rounded-lg p-2 min-w-[44px] min-h-[44px] flex items-center justify-center text-[var(--on-surface-variant)] hover:bg-[var(--surface-container-high)]/50 transition-colors"
       aria-label={isDark ? 'Helles Design aktivieren' : 'Dunkles Design aktivieren'}
     >
       {isDark ? (

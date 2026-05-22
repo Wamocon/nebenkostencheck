@@ -4,6 +4,7 @@ import { Logo } from '@/components/ui/Logo';
 import { ThemeToggle } from '@/components/ui/ThemeToggle';
 import { LanguageSwitcher } from '@/components/ui/LanguageSwitcher';
 import { NotificationBell } from '@/components/ui/NotificationBell';
+import { MobileMenu } from './MobileMenu';
 
 type Props = {
   locale: string;
@@ -55,6 +56,7 @@ export function Header({ locale }: Props) {
             >
               {t('register')}
             </Link>
+            <MobileMenu locale={locale} />
           </div>
         </div>
       </div>
