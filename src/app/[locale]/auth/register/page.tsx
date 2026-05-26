@@ -146,7 +146,7 @@ export default function RegisterPage() {
 
         <p className="mt-6 text-center text-sm text-[var(--on-surface-variant)]">
           {t('already_account')}{' '}
-          <Link href="../login" className="text-[var(--primary)] font-medium hover:underline">
+          <Link href="./login" className="text-[var(--primary)] font-medium hover:underline">
             {t('login_link')}
           </Link>
         </p>

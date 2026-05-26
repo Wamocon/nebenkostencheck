@@ -45,7 +45,7 @@ export default function ResetPasswordPage() {
           </div>
           <h2 className="text-xl font-bold text-[var(--on-surface)] mb-2">{t('success_title')}</h2>
           <p className="text-sm text-[var(--on-surface-variant)]">{t('success_message')}</p>
-          <Link href="../login" className="mt-4 inline-block text-sm text-[var(--primary)] hover:underline">
+          <Link href="./login" className="mt-4 inline-block text-sm text-[var(--primary)] hover:underline">
             {t('back_to_login')}
           </Link>
         </div>
@@ -89,7 +89,7 @@ export default function ResetPasswordPage() {
         </form>
 
         <p className="mt-6 text-center">
-          <Link href="../login" className="text-sm text-[var(--primary)] hover:underline">
+          <Link href="./login" className="text-sm text-[var(--primary)] hover:underline">
             {t('back_to_login')}
           </Link>
         </p>

@@ -90,7 +90,7 @@ export default function LoginPage() {
                 {t('password')}
               </label>
               <Link
-                href="../reset-password"
+                href="./reset-password"
                 className="text-xs text-[var(--primary)] hover:underline"
               >
                 {t('forgot_password')}
@@ -122,7 +122,7 @@ export default function LoginPage() {
 
         <p className="mt-6 text-center text-sm text-[var(--on-surface-variant)]">
           {t('no_account')}{' '}
-          <Link href="../register" className="text-[var(--primary)] font-medium hover:underline">
+          <Link href="./register" className="text-[var(--primary)] font-medium hover:underline">
             {t('register_link')}
           </Link>
         </p>

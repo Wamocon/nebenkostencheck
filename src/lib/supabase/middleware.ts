@@ -1,18 +1,29 @@
 import { createServerClient } from '@supabase/ssr';
 import { type NextRequest, NextResponse } from 'next/server';
+import type { ResponseCookie } from 'next/dist/compiled/@edge-runtime/cookies';
+
+type CookieToSet = { name: string; value: string; options?: Partial<ResponseCookie> };
+
+// Ergebnis der Session-Prüfung:
+// - redirect: Nutzer muss zur Login-Seite (geschützte Route ohne Session)
+// - cookies: Gesetzte Supabase-Cookies, die auf die finale Response kopiert werden müssen
+// - skip: Env-Vars fehlen, nichts tun
+export type SessionResult =
+  | { type: 'redirect'; response: NextResponse }
+  | { type: 'ok'; cookiesToForward: CookieToSet[] }
+  | { type: 'skip' };
 
 // Middleware-Client: Session-Refresh für jede Anfrage
-// Gibt null zurück, wenn keine Supabase-Env-Vars gesetzt sind (z.B. im Placeholder-Build)
-export async function updateSession(request: NextRequest): Promise<NextResponse | null> {
+export async function updateSession(request: NextRequest): Promise<SessionResult> {
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
   // Placeholder-Check: Middleware überspringen, wenn Vars nicht gesetzt
   if (!supabaseUrl || !supabaseKey || supabaseUrl.includes('placeholder')) {
-    return null;
+    return { type: 'skip' };
   }
 
-  let supabaseResponse = NextResponse.next({ request });
+  const cookiesToForward: CookieToSet[] = [];
 
   const supabase = createServerClient(supabaseUrl, supabaseKey, {
     cookies: {
@@ -20,13 +31,12 @@ export async function updateSession(request: NextRequest): Promise<NextResponse 
         return request.cookies.getAll();
       },
       setAll(cookiesToSet) {
+        // Request-Cookies mutieren, damit nachfolgende Middleware aktuelle Werte sieht
         cookiesToSet.forEach(({ name, value }) =>
           request.cookies.set(name, value)
         );
-        supabaseResponse = NextResponse.next({ request });
-        cookiesToSet.forEach(({ name, value, options }) =>
-          supabaseResponse.cookies.set(name, value, options)
-        );
+        // Cookies merken, um sie auf die finale Response zu kopieren
+        cookiesToForward.push(...cookiesToSet);
       },
     },
   });
@@ -44,8 +54,8 @@ export async function updateSession(request: NextRequest): Promise<NextResponse 
     const locale = request.nextUrl.pathname.split('/')[1] || 'de';
     const loginUrl = new URL(`/${locale}/auth/login`, request.url);
     loginUrl.searchParams.set('next', request.nextUrl.pathname);
-    return NextResponse.redirect(loginUrl);
+    return { type: 'redirect', response: NextResponse.redirect(loginUrl) };
   }
 
-  return supabaseResponse;
+  return { type: 'ok', cookiesToForward };
 }
