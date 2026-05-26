@@ -11,6 +11,7 @@
     "profil": "Profil",
     "admin": "Admin",
     "faq": "FAQ & Hilfe",
+    "handbuch": "Handbuch",
     "login": "Anmelden",
     "register": "Registrieren",
     "logout": "Abmelden",
@@ -302,5 +303,129 @@
     "ago_minutes": "vor {count} Min.",
     "ago_hours": "vor {count} Std.",
     "ago_days": "vor {count} Tagen"
+  },
+  "handbook": {
+    "title": "Produkthandbuch",
+    "subtitle": "Alles, was du über NebenkostenCheck wissen musst - von der Registrierung bis zum Widerspruchsschreiben.",
+    "search_placeholder": "Handbuch durchsuchen...",
+    "toc": "Inhaltsverzeichnis",
+    "download_pdf": "Als PDF speichern",
+    "no_results": "Keine Treffer gefunden. Versuche einen anderen Suchbegriff.",
+    "version": "NebenkostenCheck Handbuch v1.0",
+    "questions": "Fragen? Schreib uns an",
+    "sections": {
+      "getting_started": {
+        "title": "Erste Schritte",
+        "register": {
+          "title": "Registrierung",
+          "content": "Erstelle ein kostenloses Konto unter nebenkostencheck.eu. Du benötigst nur eine E-Mail-Adresse und ein Passwort. Nach der Registrierung erhältst du eine Bestätigungs-E-Mail. Klicke auf den Link, um dein Konto zu aktivieren."
+        },
+        "login": {
+          "title": "Anmeldung",
+          "content": "Melde dich mit deiner E-Mail-Adresse und deinem Passwort an. Falls du dein Passwort vergessen hast, kannst du es über die Funktion 'Passwort zurücksetzen' wiederherstellen."
+        },
+        "dashboard": {
+          "title": "Dein Dashboard",
+          "content": "Nach der Anmeldung landest du auf deinem Dashboard. Hier siehst du eine Übersicht aller deiner Abrechnungen, deren Status und die wichtigsten Fristen auf einen Blick."
+        }
+      },
+      "check_bill": {
+        "title": "Abrechnung prüfen",
+        "start": {
+          "title": "Neue Prüfung starten",
+          "content": "Klicke auf 'Neue Abrechnung prüfen', um den Prüfassistenten zu starten. Du wirst Schritt für Schritt durch die Eingabe geführt. Optional kannst du deine Abrechnung als PDF hochladen, um die Daten automatisch zu erkennen."
+        },
+        "grunddaten": {
+          "title": "Schritt 1: Grunddaten",
+          "content": "Gib die allgemeinen Daten deiner Abrechnung ein: Abrechnungsjahr, Zugangsdatum, Name des Vermieters/der Hausverwaltung und deine Wohnfläche in Quadratmetern. Das Zugangsdatum ist wichtig für die Fristenberechnung."
+        },
+        "positionen": {
+          "title": "Schritt 2: Positionen",
+          "content": "Trage jede Position deiner Nebenkostenabrechnung ein. Wähle die Kategorie (z.B. Grundsteuer, Wasserversorgung, Müllabfuhr), den Umlageschlüssel (Wohnfläche, Personenzahl, Verbrauch) und die Beträge. Jede Position wird gegen die BetrKV geprüft."
+        },
+        "heizkosten": {
+          "title": "Schritt 3: Heizkosten",
+          "content": "Gib die Heizkostendaten ein: Gesamtkosten, verbrauchsabhängiger Anteil und Grundkostenanteil. NebenkostenCheck prüft, ob die Aufteilung den Vorgaben der HKVO entspricht (50-70% verbrauchsabhängig)."
+        },
+        "zusammenfassung": {
+          "title": "Schritt 4: Zusammenfassung",
+          "content": "Überprüfe alle eingegebenen Daten in der Zusammenfassung. Du kannst jederzeit zurückgehen und Angaben korrigieren. Bestätige die Eingaben, um die automatische Prüfung zu starten."
+        }
+      },
+      "results": {
+        "title": "Prüfergebnisse verstehen",
+        "ampel": {
+          "title": "Das Ampelsystem",
+          "content": "Jede Position wird mit einer Ampel bewertet:\n- Grün: Position ist korrekt und BetrKV-konform.\n- Gelb: Position enthält Hinweise oder Ungenauigkeiten, die du prüfen solltest.\n- Rot: Position verstößt gegen geltendes Recht (BetrKV, HKVO oder BGB). Ein Widerspruch ist empfehlenswert."
+        },
+        "beanstandungen": {
+          "title": "Beanstandungen im Detail",
+          "content": "Für jede beanstandete Position siehst du: den genauen Fehler, die Gesetzesgrundlage, den beanstandeten Betrag und eine verständliche Begründung. Diese Informationen fließen direkt in ein mögliches Widerspruchsschreiben ein."
+        },
+        "gesetze": {
+          "title": "Gesetzesreferenzen",
+          "content": "NebenkostenCheck prüft nach: §556 BGB (Betriebskostenpflicht), der Betriebskostenverordnung (BetrKV, §1-2) und der Heizkostenverordnung (HKVO, §7). Alle Referenzen werden bei der Prüfung direkt angezeigt."
+        }
+      },
+      "objection": {
+        "title": "Widerspruch einlegen",
+        "what": {
+          "title": "Was ist ein Widerspruch?",
+          "content": "Ein Widerspruch ist ein formelles Schreiben an deinen Vermieter, in dem du fehlerhaften Positionen deiner Nebenkostenabrechnung widersprichst. Du hast laut §556 Abs. 3 BGB ab Zugang der Abrechnung 12 Monate Zeit dafür."
+        },
+        "how": {
+          "title": "Widerspruchsschreiben generieren",
+          "content": "NebenkostenCheck erstellt auf Basis der Prüfergebnisse ein individuelles Widerspruchsschreiben. Es enthält alle beanstandeten Positionen mit Beträgen und Gesetzesreferenzen. Du kannst das Schreiben als PDF herunterladen und per Post oder E-Mail an deinen Vermieter senden."
+        }
+      },
+      "deadlines": {
+        "title": "Fristen und Benachrichtigungen",
+        "twelve_months": {
+          "title": "Die 12-Monats-Frist",
+          "content": "Nach §556 Abs. 3 S. 5 BGB hast du ab Zugang der Nebenkostenabrechnung 12 Monate Zeit, Einwendungen zu erheben. Danach verfällt dein Widerspruchsrecht. NebenkostenCheck berechnet diese Frist automatisch aus dem von dir angegebenen Zugangsdatum."
+        },
+        "notifications": {
+          "title": "Automatische Erinnerungen",
+          "content": "Du erhältst Benachrichtigungen, wenn deine Widerspruchsfrist in 30 Tagen abläuft und wenn die Frist unmittelbar bevorsteht. So verpasst du keine wichtige Deadline."
+        }
+      },
+      "plans": {
+        "title": "Tarife und Funktionen",
+        "free": {
+          "title": "Kostenlos (Free)",
+          "content": "Mit dem kostenlosen Tarif kannst du bis zu 2 Abrechnungen pro Jahr prüfen. Enthalten sind: BetrKV-Abgleich, HKVO-Validierung, Fristenüberwachung und das Ampelsystem. Ideal zum Ausprobieren."
+        },
+        "pro": {
+          "title": "Pro-Tarif",
+          "content": "Der Pro-Tarif bietet unbegrenzte Abrechnungsprüfungen, PDF-Upload mit automatischer Erkennung, Widerspruchsschreiben-Generator und Archiv aller vergangenen Prüfungen. Upgrade jederzeit über Dashboard > Upgrade."
+        }
+      },
+      "settings": {
+        "title": "Einstellungen",
+        "theme": {
+          "title": "Dark Mode und Light Mode",
+          "content": "Wechsle zwischen hellem und dunklem Design über das Sonnen-/Mond-Symbol in der Kopfzeile. Die Einstellung wird im Browser gespeichert und automatisch beim nächsten Besuch übernommen."
+        },
+        "language": {
+          "title": "Sprache wechseln",
+          "content": "NebenkostenCheck ist auf Deutsch und Englisch verfügbar. Wechsle die Sprache über das Sprachmenü in der Kopfzeile. Alle Inhalte, Prüfergebnisse und Widerspruchsschreiben werden in der gewählten Sprache angezeigt."
+        }
+      },
+      "privacy": {
+        "title": "Datenschutz und Sicherheit",
+        "data": {
+          "title": "Deine Daten",
+          "content": "Alle Daten werden verschlüsselt in der EU gespeichert (Supabase, Frankfurt). Du kannst dein Konto und alle zugehörigen Daten jederzeit löschen."
+        },
+        "rls": {
+          "title": "Zugriffskontrolle",
+          "content": "Jeder Nutzer sieht ausschließlich seine eigenen Abrechnungen und Ergebnisse. Die Datenbank verwendet Row Level Security (RLS), sodass ein Zugriff auf fremde Daten technisch ausgeschlossen ist."
+        },
+        "legal": {
+          "title": "Rechtliche Hinweise",
+          "content": "NebenkostenCheck erbringt keine Rechtsberatung im Sinne des §2 RDG. Die Prüfung ersetzt keine anwaltliche Beratung. In komplexen Fällen empfehlen wir die Konsultation eines Fachanwalts für Mietrecht."
+        }
+      }
+    }
   }
 }

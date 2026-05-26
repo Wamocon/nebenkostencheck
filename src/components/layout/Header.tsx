@@ -36,6 +36,9 @@ export function Header({ locale }: Props) {
             <Link href={`/${locale}/faq`} className="hover:text-[var(--on-surface)] transition-colors">
               {t('faq')}
             </Link>
+            <Link href={`/${locale}/help/handbuch`} className="hover:text-[var(--on-surface)] transition-colors">
+              {t('handbuch')}
+            </Link>
           </nav>
 
           {/* Rechte Seite: Notifications, Sprache, Theme, Auth */}

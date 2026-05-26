@@ -11,6 +11,7 @@
     "profil": "Profile",
     "admin": "Admin",
     "faq": "FAQ & Help",
+    "handbuch": "Handbook",
     "login": "Sign In",
     "register": "Sign Up",
     "logout": "Sign Out",
@@ -285,5 +286,129 @@
     "ago_minutes": "{count} min ago",
     "ago_hours": "{count}h ago",
     "ago_days": "{count}d ago"
+  },
+  "handbook": {
+    "title": "Product Handbook",
+    "subtitle": "Everything you need to know about NebenkostenCheck - from registration to filing an objection.",
+    "search_placeholder": "Search handbook...",
+    "toc": "Table of Contents",
+    "download_pdf": "Save as PDF",
+    "no_results": "No results found. Try a different search term.",
+    "version": "NebenkostenCheck Handbook v1.0",
+    "questions": "Questions? Contact us at",
+    "sections": {
+      "getting_started": {
+        "title": "Getting Started",
+        "register": {
+          "title": "Registration",
+          "content": "Create a free account at nebenkostencheck.eu. You only need an email address and a password. After registration you will receive a confirmation email. Click the link to activate your account."
+        },
+        "login": {
+          "title": "Login",
+          "content": "Sign in with your email address and password. If you have forgotten your password, you can recover it using the 'Reset password' function."
+        },
+        "dashboard": {
+          "title": "Your Dashboard",
+          "content": "After logging in you will land on your dashboard. Here you can see an overview of all your bills, their status, and the most important deadlines at a glance."
+        }
+      },
+      "check_bill": {
+        "title": "Check a Bill",
+        "start": {
+          "title": "Start a New Check",
+          "content": "Click 'Check new bill' to start the review wizard. You will be guided step by step through the data entry. Optionally, you can upload your bill as a PDF for automatic data recognition."
+        },
+        "grunddaten": {
+          "title": "Step 1: Basic Data",
+          "content": "Enter the general data of your bill: billing year, date of receipt, name of the landlord/property management, and your apartment size in square meters. The date of receipt is important for deadline calculation."
+        },
+        "positionen": {
+          "title": "Step 2: Cost Items",
+          "content": "Enter each item from your utility bill. Select the category (e.g. property tax, water supply, waste disposal), the allocation key (living space, number of occupants, consumption), and the amounts. Each item is checked against the BetrKV."
+        },
+        "heizkosten": {
+          "title": "Step 3: Heating Costs",
+          "content": "Enter the heating cost data: total costs, consumption-based share, and base cost share. NebenkostenCheck verifies whether the split complies with the HKVO requirements (50-70% consumption-based)."
+        },
+        "zusammenfassung": {
+          "title": "Step 4: Summary",
+          "content": "Review all entered data in the summary. You can go back at any time to correct entries. Confirm the data to start the automatic review."
+        }
+      },
+      "results": {
+        "title": "Understanding Results",
+        "ampel": {
+          "title": "The Traffic Light System",
+          "content": "Each item is rated with a traffic light:\n- Green: Item is correct and BetrKV-compliant.\n- Yellow: Item contains notes or inaccuracies that you should review.\n- Red: Item violates applicable law (BetrKV, HKVO, or BGB). Filing an objection is recommended."
+        },
+        "beanstandungen": {
+          "title": "Objections in Detail",
+          "content": "For each objected item you will see: the exact error, the legal basis, the disputed amount, and a clear explanation. This information flows directly into a potential objection letter."
+        },
+        "gesetze": {
+          "title": "Legal References",
+          "content": "NebenkostenCheck reviews against: Section 556 BGB (operating cost obligation), the Operating Cost Ordinance (BetrKV, Sections 1-2), and the Heating Cost Ordinance (HKVO, Section 7). All references are displayed directly during the review."
+        }
+      },
+      "objection": {
+        "title": "Filing an Objection",
+        "what": {
+          "title": "What is an Objection?",
+          "content": "An objection is a formal letter to your landlord in which you dispute incorrect items in your utility bill. According to Section 556(3) BGB, you have 12 months from the date of receipt to do so."
+        },
+        "how": {
+          "title": "Generate Objection Letter",
+          "content": "NebenkostenCheck creates an individual objection letter based on the review results. It contains all disputed items with amounts and legal references. You can download the letter as a PDF and send it to your landlord by mail or email."
+        }
+      },
+      "deadlines": {
+        "title": "Deadlines and Notifications",
+        "twelve_months": {
+          "title": "The 12-Month Deadline",
+          "content": "According to Section 556(3) sentence 5 BGB, you have 12 months from receipt of the utility bill to raise objections. After that, your right to object expires. NebenkostenCheck automatically calculates this deadline from the date of receipt you provide."
+        },
+        "notifications": {
+          "title": "Automatic Reminders",
+          "content": "You will receive notifications when your objection deadline expires in 30 days and when the deadline is imminent. This way you never miss an important deadline."
+        }
+      },
+      "plans": {
+        "title": "Plans and Features",
+        "free": {
+          "title": "Free Plan",
+          "content": "With the free plan you can check up to 2 bills per year. Included: BetrKV compliance check, HKVO validation, deadline monitoring, and the traffic light system. Ideal for trying out."
+        },
+        "pro": {
+          "title": "Pro Plan",
+          "content": "The Pro plan offers unlimited bill reviews, PDF upload with automatic recognition, objection letter generator, and an archive of all past reviews. Upgrade anytime via Dashboard > Upgrade."
+        }
+      },
+      "settings": {
+        "title": "Settings",
+        "theme": {
+          "title": "Dark Mode and Light Mode",
+          "content": "Switch between light and dark design via the sun/moon icon in the header. The setting is saved in your browser and automatically applied on your next visit."
+        },
+        "language": {
+          "title": "Change Language",
+          "content": "NebenkostenCheck is available in German and English. Switch the language via the language menu in the header. All content, review results, and objection letters are displayed in the selected language."
+        }
+      },
+      "privacy": {
+        "title": "Privacy and Security",
+        "data": {
+          "title": "Your Data",
+          "content": "All data is stored encrypted in the EU (Supabase, Frankfurt). You can delete your account and all associated data at any time."
+        },
+        "rls": {
+          "title": "Access Control",
+          "content": "Each user can only see their own bills and results. The database uses Row Level Security (RLS), making access to other users' data technically impossible."
+        },
+        "legal": {
+          "title": "Legal Notices",
+          "content": "NebenkostenCheck does not provide legal advice within the meaning of Section 2 RDG. The review does not replace legal counsel. In complex cases we recommend consulting a specialist lawyer for tenancy law."
+        }
+      }
+    }
   }
 }
