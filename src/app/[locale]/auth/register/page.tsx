@@ -47,7 +47,7 @@ export default function RegisterPage() {
       setError(
         authError.message.includes('already registered')
           ? t('error_email_taken')
-          : t('error_generic')
+          : `${t('error_generic')} (${authError.message})`
       );
       setIsLoading(false);
       return;

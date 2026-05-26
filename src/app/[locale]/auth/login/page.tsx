@@ -43,7 +43,7 @@ export default function LoginPage() {
       setError(
         authError.message.includes('Invalid login credentials')
           ? t('error_invalid')
-          : t('error_generic')
+          : `${t('error_generic')} (${authError.message})`
       );
       setIsLoading(false);
       return;
